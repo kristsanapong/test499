@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".blooddonation">
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
+        app:itemBackground="@color/colorPrimary"
+        app:itemIconTint="#FFFFFF"
+        app:itemTextColor="#FFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:menu="@menu/navigation">
+
+    </android.support.design.widget.BottomNavigationView>
+
+    <ScrollView
+        android:layout_width="396dp"
+        android:layout_height="669dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.096">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ผู้บริจาคโลหิต กรุณากรอกข้อมูลด่านล่าง"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ผู้บริจาคโลหิต กรุณากรอกข้อมูลด่านล่างและความปลอดภัยของผู้ป่วยที่จะได้รับโลหิตของท่าน โปรดตอบคำถามตามความเป็นจริง และหากไม่มั่นใจว่าโลหิตของท่านปลอดเชื้อ กรุณางดบริจาคโลหิต "
+                android:textColor="@android:color/holo_red_dark" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ใช่     ไม่          "
+                android:textAlignment="textEnd"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="เฉพาะผู้บริจาคสุภาพสตรี"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="อยู่ในระหว่างตั้งครรภ์"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="คลอดบุตร ในอีกระยะเวลา (เดือน)"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="289dp"
+                android:layout_height="wrap_content"
+                android:text="คลอดบุตร หรือแท้งบุตร ภายใน 6 เดือนที่ผ่านมา (โปรดระบุจำนวนเดือน)"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="อยู่ระยะให้นมบุตร"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="คำถามสำหรับผู้บริาคสุุภาพบุรุษและสุภาพสตรี"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ท่านมีเพศสัมพันธ์กับผู้อื่นที่ไม่ใช่คู่ของท่าน"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:text="ท่านมีเพศสัมพันธ์กับเพศเดียวกัน (ตอบเฉพาะเพศชาย)"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="คู่ของท่านมีเพศสัมพันธ์กับผู้อื่น"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="292dp"
+                android:layout_height="wrap_content"
+                android:text="คู่ของท่านมีเพศสัมพันธ์กับเพศเดียวกัน (ตอบเฉพาะเพศหญิงที่มีคู่เป็นชาย)"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="หมวด 2.1"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="292dp"
+                android:layout_height="wrap_content"
+                android:text="ท้องเสีย ท้องร่วง ภายใน 7 วันที่ผ่านมา"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="293dp"
+                android:layout_height="wrap_content"
+                android:text="น้ำหนักลดลงอย่างรวดเร็วภายใน 3 เดือน โดยไม่ทราบสาเหตุ"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="292dp"
+                android:layout_height="wrap_content"
+                android:text="ถอนฟอน อุดฟัน ขูดหินปูนและรักษารากฟันภายใน 3 วันที่ผ่านมา"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="295dp"
+                android:layout_height="wrap_content"
+                android:text="ได้รับการผ่าตัดเล็ก ภายใน 7 วันที่ผ่านมา"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="294dp"
+                android:layout_height="wrap_content"
+                android:text="ได้รับการผ่าตัดใหญ่ ภายใน 6 เดือนที่ผ่านมา"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="หมวด 2.2"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="มีอาการมึนเมาจากการดื่มแอลกอฮอล์ หรือสารอื่นๆ"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="289dp"
+                android:layout_height="wrap_content"
+                android:text="เคยมีประวัติติดยาเสพติด หรือเพิ่งพ้นโทษ ในระยะ 3 ปี"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="289dp"
+                android:layout_height="wrap_content"
+                android:text="เคยเจ็บป่วยต้องรับโลหิตของผู้อื่นภายใน 12 เดือนที่ผ่านมา"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView33"
+                android:layout_width="289dp"
+                android:layout_height="wrap_content"
+                android:text="เข้าไปในพื้นที่ที่มีเชื้อมาราเลียชุกชุมในระยะ 12 เดือนที่ผ่านมา"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView34"
+                android:layout_width="288dp"
+                android:layout_height="wrap_content"
+                android:text="ป่วยเป็น มาราเรียในช่วง 3 ปีที่ผ่านมา"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="291dp"
+                android:layout_height="wrap_content"
+                android:text="เคยเจ็บป่วยต้องรับโลหิตของผู้อื่นที่ประเทศอังกฤษ ในระหว่างปี พ.ศ.2523-2539"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView36"
+                android:layout_width="293dp"
+                android:layout_height="wrap_content"
+                android:text="เคยพำนักอยู่ในประเทศอังกฤษ ในระหว่าง พ.ศ. 2523-2539 เป็นระยะเวลา 6 เดือนขึ้นไป"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView38"
+                android:layout_width="291dp"
+                android:layout_height="wrap_content"
+                android:text="เคยพำนักอยู่ในประเทศอังกฤษ ในระหว่าง พ.ศ. 2523-2539 เป็นระยะเวลา 6 เดือนขึ้นไป"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView39"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView40"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="หมวด 3.1"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <TextView
+                android:id="@+id/textView42"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="สุขภาพสมบูรณ์และพักผ่อนเพียงพอ"
+                android:textColor="@android:color/black"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

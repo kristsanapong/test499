@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">proj499</string>
+    <string name="title_activity_news">News</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_map">Map</string>
+    <string name="title_activity_blooddonation">blooddonation</string>
+    <string name="title_activity_bloodinformation">bloodinformation</string>
+    <string name="title_activity_history">History</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
