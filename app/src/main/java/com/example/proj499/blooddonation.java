@@ -7,6 +7,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.app.Activity;
 
 public class blooddonation extends AppCompatActivity {
 
@@ -30,7 +31,7 @@ public class blooddonation extends AppCompatActivity {
                     overridePendingTransition(0, 0);
                     return true;
                 case R.id.navigation_Maps:
-                    in = new Intent(getBaseContext(),Map.class);
+                    in = new Intent(getBaseContext(),MapsActivity.class);
                     startActivity(in);
                     overridePendingTransition(0, 0);
                     return true;

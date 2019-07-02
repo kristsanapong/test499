@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.SupportMapFragment;
 
 public class Map extends AppCompatActivity {
 
@@ -63,5 +62,7 @@ public class Map extends AppCompatActivity {
 
 
     }
+
+
 
 }

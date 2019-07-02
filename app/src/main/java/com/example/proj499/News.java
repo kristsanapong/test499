@@ -30,7 +30,7 @@ public class News extends AppCompatActivity {
                     overridePendingTransition(0, 0);
                     return true;
                 case R.id.navigation_Maps:
-                    in = new Intent(getBaseContext(),Map.class);
+                    in = new Intent(getBaseContext(),MapsActivity.class);
                     startActivity(in);
                     overridePendingTransition(0, 0);
                     return true;
