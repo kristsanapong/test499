@@ -50,12 +50,12 @@
         android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/signup_button"
+        android:id="@+id/register_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="146dp"
+        android:layout_marginEnd="144dp"
         android:layout_marginBottom="35dp"
         android:text="สมัครสมาชิก" />
 
@@ -74,22 +74,19 @@
         android:hint="รหัสผ่าน"
         android:inputType="textPassword" />
 
-    <EditText
-        android:id="@+id/editText6"
+    <TextView
+        android:id="@+id/bdDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="43dp"
-        android:layout_marginEnd="155dp"
-        android:layout_marginBottom="234dp"
-        android:ems="10"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="241dp"
         android:hint="วันเกิด (วัน/เดือน/ปี)"
-        android:inputType="date" />
+        android:inputType="date"
+        android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/editText7"
+        android:id="@+id/txt_citizen"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -143,6 +140,7 @@
     </RadioGroup>
 
     <RadioGroup
+        android:id="@+id/blood_group"
         android:layout_width="wrap_content"
         android:layout_height="51dp"
         android:layout_alignParentStart="true"
