@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,7 +8,6 @@
     tools:context=".blooddonation">
 
     <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="?android:attr/windowBackground"
@@ -46,6 +42,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="ผู้บริจาคโลหิต กรุณากรอกข้อมูลด่านล่าง"
+                    android:layout_marginLeft="6dp"
                     android:textAlignment="center"
                     android:textColor="@android:color/holo_red_dark"
                     android:textSize="18sp"
@@ -74,21 +71,32 @@
                     android:textColor="@android:color/black"
                     android:textStyle="bold" />
 
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    tools:layout_editor_absoluteX="7dp"
+                    tools:layout_editor_absoluteY="212dp" />
                 <TextView
                     android:id="@+id/textView7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="  ท่านมีเพศสัมพันธ์กับผู้อื่นที่ไม่ใช่คู่ของท่าน"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black" />
 
                 <RadioGroup
-
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
                     android:id="@+id/q1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    >
 
                     <RadioButton
                         android:id="@+id/q1_y"
@@ -112,6 +120,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="    คู่ของท่านมีเพศสัมพันธ์กับผู้อื่น"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -121,7 +131,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <RadioButton
                         android:id="@+id/q2_y"
                         android:layout_width="0dp"
@@ -137,10 +149,11 @@
                         android:text="ไม่" />
                 </RadioGroup>
                 <TextView
-                    android:id="@+id/t1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
                 <TextView
@@ -148,6 +161,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="หมวด 2.1"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:gravity="center"
                     android:textColor="@android:color/black"
                     android:textStyle="bold"
@@ -157,10 +172,21 @@
                     tools:layout_editor_absoluteY="212dp" />
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    tools:layout_editor_absoluteX="7dp"
+                    tools:layout_editor_absoluteY="212dp" />
+
+                <TextView
                     android:id="@+id/textView22"
                     android:layout_width="292dp"
                     android:layout_height="wrap_content"
-                    android:text="   ท้องเสีย ท้องร่วง ภายใน 7 วันที่ผ่านมา"
+                    android:text="ท้องเสีย ท้องร่วง ภายใน 7 วันที่ผ่านมา"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -170,7 +196,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <RadioButton
                         android:id="@+id/q3_y"
                         android:layout_width="0dp"
@@ -190,7 +218,9 @@
                     android:id="@+id/textView23"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="    น้ำหนักลดลงอย่างรวดเร็วภายใน 3 เดือน โดยไม่ทราบสาเหตุ"
+                    android:text="น้ำหนักลดลงอย่างรวดเร็วภายใน 3 เดือน โดยไม่ทราบสาเหตุ"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -200,7 +230,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <RadioButton
                         android:id="@+id/q4_y"
                         android:layout_width="0dp"
@@ -220,7 +252,9 @@
                     android:id="@+id/textView24"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="    ถอนฟอน อุดฟัน ขูดหินปูนและรักษารากฟันภายใน 3 วันที่ผ่านมา"
+                    android:text="ถอนฟอน อุดฟัน ขูดหินปูนและรักษารากฟันภายใน 3 วันที่ผ่านมา"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -230,7 +264,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <RadioButton
                         android:id="@+id/q5_y"
                         android:layout_width="0dp"
@@ -249,7 +285,9 @@
                     android:id="@+id/textView25"
                     android:layout_width="295dp"
                     android:layout_height="wrap_content"
-                    android:text="    ได้รับการผ่าตัดเล็ก ภายใน 7 วันที่ผ่านมา"
+                    android:text="ได้รับการผ่าตัดเล็ก ภายใน 7 วันที่ผ่านมา"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -259,7 +297,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <RadioButton
                         android:id="@+id/q6_y"
                         android:layout_width="0dp"
@@ -278,7 +318,9 @@
                     android:id="@+id/textView26"
                     android:layout_width="294dp"
                     android:layout_height="wrap_content"
-                    android:text="    ได้รับการผ่าตัดใหญ่ ภายใน 6 เดือนที่ผ่านมา"
+                    android:text="ได้รับการผ่าตัดใหญ่ ภายใน 6 เดือนที่ผ่านมา"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -288,7 +330,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <RadioButton
                         android:id="@+id/q7_y"
                         android:layout_width="0dp"
@@ -315,6 +359,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="หมวด 2.2"
+
                     android:gravity="center"
                     android:textColor="@android:color/black"
                     android:textStyle="bold"
@@ -322,10 +367,20 @@
                     tools:layout_editor_absoluteY="212dp" />
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    tools:layout_editor_absoluteX="7dp"
+                    tools:layout_editor_absoluteY="212dp" />
+                <TextView
                     android:id="@+id/textV6"
                     android:layout_width="434dp"
                     android:layout_height="wrap_content"
-                    android:text="    มีอาการมึนเมาจากการดื่มแอลกอฮอล์ หรือสารอื่นๆ"
+                    android:text="มีอาการมึนเมาจากการดื่มแอลกอฮอล์ หรือสารอื่นๆ"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -337,7 +392,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <RadioButton
                         android:id="@+id/q8_y"
                         android:layout_width="0dp"
@@ -357,7 +414,9 @@
                     android:id="@+id/textView30"
                     android:layout_width="423dp"
                     android:layout_height="wrap_content"
-                    android:text="    เคยมีประวัติติดยาเสพติด หรือเพิ่งพ้นโทษ ในระยะ 3 ปี"
+                    android:text="เคยมีประวัติติดยาเสพติด หรือเพิ่งพ้นโทษ ในระยะ 3 ปี"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -367,7 +426,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <RadioButton
                         android:id="@+id/q9_y"
                         android:layout_width="0dp"
@@ -387,7 +448,9 @@
                     android:id="@+id/textView31"
                     android:layout_width="423dp"
                     android:layout_height="wrap_content"
-                    android:text="    เคยเจ็บป่วยต้องรับโลหิตของผู้อื่นภายใน 12 เดือนที่ผ่านมา"
+                    android:text="เคยเจ็บป่วยต้องรับโลหิตของผู้อื่นภายใน 12 เดือนที่ผ่านมา"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -397,7 +460,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <RadioButton
                         android:id="@+id/q10_y"
                         android:layout_width="0dp"
@@ -418,16 +483,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="เข้าไปในพื้นที่ที่มีเชื้อมาราเลียชุกชุมในระยะ 12 เดือนที่ผ่านมา"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
                 <RadioGroup
-
-                android:id="@+id/q11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/view_below"
-                android:orientation="horizontal">>
+                    android:id="@+id/q11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/view_below"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                 <RadioButton
                     android:id="@+id/q11_y"
                     android:layout_width="0dp"
@@ -448,6 +516,8 @@
                     android:layout_width="288dp"
                     android:layout_height="wrap_content"
                     android:text="ป่วยเป็น มาราเรียในช่วง 3 ปีที่ผ่านมา"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -457,7 +527,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <RadioButton
                         android:id="@+id/q12_y"
                         android:layout_width="0dp"
@@ -478,6 +550,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="เคยเจ็บป่วยต้องรับโลหิตของผู้อื่นที่ประเทศอังกฤษ ในระหว่างปี พ.ศ.2523-2539"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -487,7 +561,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <RadioButton
                         android:id="@+id/q14_y"
                         android:layout_width="0dp"
@@ -509,6 +585,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="เคยพำนักอยู่ในประเทศอังกฤษ ในระหว่าง พ.ศ. 2523-2539 เป็นระยะเวลา 6 เดือนขึ้นไป"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -518,7 +596,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <RadioButton
                         android:id="@+id/q15_y"
                         android:layout_width="0dp"
@@ -528,36 +608,6 @@
 
                     <RadioButton
                         android:id="@+id/q15_n"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="ไม่" />
-                </RadioGroup>
-
-                <TextView
-                    android:id="@+id/textView38"
-                    android:layout_width="428dp"
-                    android:layout_height="wrap_content"
-                    android:text="เคยพำนักอยู่ในประเทศอังกฤษ ในระหว่าง พ.ศ. 2523-2539 เป็นระยะเวลา 6 เดือนขึ้นไป"
-                    android:textColor="@android:color/black"
-                    tools:layout_editor_absoluteX="7dp"
-                    tools:layout_editor_absoluteY="212dp" />
-                <RadioGroup
-
-                    android:id="@+id/q16"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
-                    <RadioButton
-                        android:id="@+id/q16_y"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="ใช่" />
-
-                    <RadioButton
-                        android:id="@+id/q16_n"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -584,12 +634,21 @@
                     android:textStyle="bold"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    tools:layout_editor_absoluteX="7dp"
+                    tools:layout_editor_absoluteY="212dp" />
                 <TextView
                     android:id="@+id/textView42"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="สุขภาพสมบูรณ์และพักผ่อนเพียงพอ พร้อมที่จะบริจาคโลหิต"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -599,7 +658,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <RadioButton
                         android:id="@+id/q17_y"
                         android:layout_width="0dp"
@@ -619,6 +680,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="เพิ่งรับประทานอาหารที่มีไขมันสูง ภายใน 6 ชั่วโมง"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -629,7 +692,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <RadioButton
                         android:id="@+id/q18_y"
                         android:layout_width="0dp"
@@ -649,6 +714,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="เจาะหูหรืออวัยวะอื่น สัก ลบรอยสัก ฝังเข็ม มานานมากกว่า 1 ปี"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -658,7 +725,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <RadioButton
                         android:id="@+id/q19_y"
                         android:layout_width="0dp"
@@ -678,6 +747,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="เคยรับวัคซีน เพื่อป้องกันโรค ภายใน 2 เดือน"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -687,7 +758,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <RadioButton
                         android:id="@+id/q20_y"
                         android:layout_width="0dp"
@@ -707,6 +780,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="รับเซรุ่มภายใน 1 ปี"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -716,7 +791,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <RadioButton
                         android:id="@+id/q21_y"
                         android:layout_width="0dp"
@@ -731,35 +808,7 @@
                         android:layout_weight="1"
                         android:text="ไม่" />
                 </RadioGroup>
-                <TextView
-                    android:id="@+id/textView47"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="รับเซรุ่มภายใน 1 ปี"
-                    android:textColor="@android:color/black"
-                    tools:layout_editor_absoluteX="7dp"
-                    tools:layout_editor_absoluteY="212dp" />
-                <RadioGroup
 
-                    android:id="@+id/q22"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
-                    <RadioButton
-                        android:id="@+id/q22_y"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="ใช่" />
-
-                    <RadioButton
-                        android:id="@+id/q22_n"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="ไม่" />
-                </RadioGroup>
 
                 <TextView
                     android:id="@+id/textView48"
@@ -783,10 +832,20 @@
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    tools:layout_editor_absoluteX="7dp"
+                    tools:layout_editor_absoluteY="212dp" />
+                <TextView
                     android:id="@+id/textView50"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="รับประทานยาแอสไพริน ยาคลายกล้ามเนื้อ ยาแก้วดข้อ ยาอื่นๆ ในกลุ่มเดียวกัน"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -796,7 +855,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <RadioButton
                         android:id="@+id/q23_y"
                         android:layout_width="0dp"
@@ -816,6 +877,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="รับประทานยาแก้อักเสปหรืออื่นๆ"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -825,7 +888,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <RadioButton
                         android:id="@+id/q24_y"
                         android:layout_width="0dp"
@@ -845,6 +910,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="เคยเป็นโรคตับอักเสบ"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -854,7 +921,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
+
                     <RadioButton
                         android:id="@+id/q25_y"
                         android:layout_width="0dp"
@@ -874,6 +944,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="เคยเป็นโรคตับอักเสบก่อนอายุ 11 ปี"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -883,7 +955,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
+
                     <RadioButton
                         android:id="@+id/q26_y"
                         android:layout_width="0dp"
@@ -904,6 +979,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="คนในครอบครัวเป็นโรคตับอักเสบในช่วง 6 เดือนที่ผ่านมา"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -913,7 +990,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:orientation="horizontal"
+                    >
                     <RadioButton
                         android:id="@+id/q27_y"
                         android:layout_width="0dp"
@@ -933,6 +1013,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="เป็น / เคยเป็น โรคหอบหืด ลมชัก โรคผิวหนังเรื้อรัง ไอเรื้อรัง วัณโรค ภูมิแพ้  โรคความดันโลหิตสูง เบาหวาน หัวใจ ไทรอยด์ มะเร็ง โรคโลหิตออกง่าย-หยุดยาก"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:textColor="@android:color/black"
                     tools:layout_editor_absoluteX="7dp"
                     tools:layout_editor_absoluteY="212dp" />
@@ -942,7 +1024,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/view_below"
-                    android:orientation="horizontal">>
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:orientation="horizontal">
                     <RadioButton
                         android:id="@+id/q28_y"
                         android:layout_width="0dp"

@@ -14,9 +14,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="39dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="543dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="459dp"
         android:ems="10"
         android:hint="อีเมลล์"
         android:inputType="textEmailAddress" />
@@ -28,67 +28,48 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="41dp"
-        android:layout_marginEnd="209dp"
-        android:layout_marginBottom="399dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="206dp"
+        android:layout_marginBottom="342dp"
         android:ems="10"
         android:hint="ชื่อ"
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/txt_surname"
+        android:id="@+id/txt_lastname"
         android:layout_width="161dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="216dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginBottom="399dp"
+        android:layout_marginStart="219dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="342dp"
         android:ems="10"
         android:hint="นามสกุล"
         android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/signup_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="148dp"
-        android:layout_marginBottom="111dp"
+        android:layout_marginEnd="146dp"
+        android:layout_marginBottom="35dp"
         android:text="สมัครสมาชิก" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="271dp"
-        android:layout_marginBottom="349dp"
-        android:text="ชาย" />
-
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="199dp"
-        android:layout_marginBottom="349dp"
-        android:text="หญิง" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/txt_pw"
         android:layout_width="339dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="39dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginBottom="476dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="399dp"
         android:ems="10"
         android:hint="รหัสผ่าน"
         android:inputType="textPassword" />
@@ -100,11 +81,11 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="158dp"
-        android:layout_marginBottom="284dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginEnd="155dp"
+        android:layout_marginBottom="234dp"
         android:ems="10"
-        android:hint="วันเกิด"
+        android:hint="วันเกิด (วัน/เดือน/ปี)"
         android:inputType="date" />
 
     <EditText
@@ -114,73 +95,94 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="81dp"
-        android:layout_marginBottom="226dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginBottom="176dp"
         android:ems="10"
         android:hint="บัตรประจำตัวประชาชน 13 หลัก"
         android:inputType="textPersonName" />
-
-    <CheckBox
-        android:id="@+id/checkBox3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="187dp"
-        android:layout_marginBottom="181dp"
-        android:text="B" />
-
-    <CheckBox
-        android:id="@+id/checkBox5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="139dp"
-        android:layout_marginBottom="181dp"
-        android:text="O" />
-
-    <CheckBox
-        android:id="@+id/checkBox6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="93dp"
-        android:layout_marginBottom="181dp"
-        android:text="AB" />
-
-    <CheckBox
-        android:id="@+id/checkBox4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="228dp"
-        android:layout_marginBottom="181dp"
-        android:text="A" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="190dp"
-        android:layout_toStartOf="@+id/checkBox4"
-        android:text="กรุ๊ปเลือด" />
+        android:layout_marginStart="46dp"
+        android:layout_marginEnd="342dp"
+        android:layout_marginBottom="303dp"
 
-    <TextView
-        android:id="@+id/textView2"
+        android:text="เพศ" />
+
+    <RadioGroup
+        android:id="@+id/sex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="43dp"
-        android:layout_marginEnd="345dp"
-        android:layout_marginBottom="354dp"
-        android:text="เพศ" />
+        android:layout_marginStart="108dp"
+        android:layout_marginEnd="115dp"
+        android:layout_marginBottom="292dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ชาย" />
+
+        <RadioButton
+            android:id="@+id/radioButton6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="หญิง" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="51dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="99dp"
+        android:layout_marginBottom="105dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButton8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+            android:text="A" />
+
+        <RadioButton
+            android:id="@+id/radioButton7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:text="B" />
+
+        <RadioButton
+            android:id="@+id/radioButton10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+            android:text="O" />
+
+        <RadioButton
+            android:id="@+id/radioButton9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="AB" />
+    </RadioGroup>
 
 </RelativeLayout>

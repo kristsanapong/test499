@@ -43,5 +43,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(bloodplace).title("งานธนาคารเลือด โรงพยาบาลมหาราชนครเชียงใหม่"));
         float zoomlevel = 16.0f;
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bloodplace,zoomlevel));
+
     }
 }
