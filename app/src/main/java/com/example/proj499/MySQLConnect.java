@@ -44,7 +44,6 @@ public class MySQLConnect {
     }
 
     public List<String> getData(){
-
         String url = URL + GET_URL;
 
         StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
