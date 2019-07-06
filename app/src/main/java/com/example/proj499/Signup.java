@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,7 @@ public class Signup extends AppCompatActivity {
     private MySQLConnect mySQLConnect;
     private List<String> items;
     private TextView mDisplayDate;
+
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     @Override
@@ -54,7 +56,6 @@ public class Signup extends AppCompatActivity {
                         String lastname = txt_lastname.getText().toString();
                         String email = txt_email.getText().toString();
                         String password = txt_pw.getText().toString();
-
                         break;
                 }
 
@@ -76,8 +77,14 @@ public class Signup extends AppCompatActivity {
                 mDisplayDate.setText(date);
             }
         };
-}
 
+
+    }
+
+    private void checkCitizen(){
+
+
+    }
 
 }
 
