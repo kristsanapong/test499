@@ -88,18 +88,13 @@ public class MySQLConnect {
 //            StrictMode.ThreadPolicy policy =  new StrictMode.ThreadPolicy.Builder().permitAll().build();
 //            StrictMode.setThreadPolicy(policy);
 //        }
-        class SendPost extends AsyncTask<String, Void, String> {
+        class SendPost extends AsyncTask<String, Void, String> { //post
             @Override
             protected String doInBackground(String... strings) {
 
-//                String fname = firstname;
-//                String lname = lastname;
-//                String emailholder = email;
-//                String citizen_id_holder = citizen;
                 try {
                     ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
                     nameValuePairs.add(new BasicNameValuePair("isAdd","true"));
-//            nameValuePairs.add(new BasicNameValuePair("comment",value));
                     nameValuePairs.add(new BasicNameValuePair("firstname",firstname));
                     nameValuePairs.add(new BasicNameValuePair("lastname",lastname));
                     nameValuePairs.add(new BasicNameValuePair("username",email));
