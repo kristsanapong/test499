@@ -51,15 +51,19 @@ public class Signup extends AppCompatActivity {
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.register_button:
-//                        String firstname = txt_fistname.getText().toString();
-//                        String lastname = txt_lastname.getText().toString();
-//                        String email = txt_email.getText().toString();
+                        String firstname = txt_fistname.getText().toString();
+                        String lastname = txt_lastname.getText().toString();
+                        String email = txt_email.getText().toString();
 //                        String password = txt_pw.getText().toString();
+
                         String citizen_id = txt_citizen.getText().toString();
                         boolean check = checkCitizen(citizen_id);
 
-                        if (check == false){
+                        if (!check){
                             Toast.makeText(getApplicationContext(),"เลขบัตรประจำตัวไม่ถูกต้อง",Toast.LENGTH_LONG).show();
+
+                        } else {
+                            mySQLConnect.sentData_signup(firstname, lastname, email, citizen_id, "1");
                         }
                         break;
                 }

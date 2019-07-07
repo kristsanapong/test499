@@ -79,7 +79,7 @@ public class MySQLConnect {
         }catch (JSONException ex){ex.printStackTrace();}
     }
 
-    public void sentData_signup(String value){
+    public void sentData_signup(String firstname, String lastname, String email, String citizen, String value){
         StrictMode.enableDefaults();
         if (Build.VERSION.SDK_INT > 9){
             StrictMode.ThreadPolicy policy =  new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -88,8 +88,12 @@ public class MySQLConnect {
 
         try {
             ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-            nameValuePairs.add(new BasicNameValuePair("isAdd","true"));
-            nameValuePairs.add(new BasicNameValuePair("comment",value));
+//            nameValuePairs.add(new BasicNameValuePair("isAdd","true"));
+//            nameValuePairs.add(new BasicNameValuePair("comment",value));
+            nameValuePairs.add(new BasicNameValuePair("firstname",firstname));
+            nameValuePairs.add(new BasicNameValuePair("lastname",lastname));
+            nameValuePairs.add(new BasicNameValuePair("username",email));
+            nameValuePairs.add(new BasicNameValuePair("citizen_id",citizen));
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(URL + SENT_URL);
             httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs,"UTF-8"));
