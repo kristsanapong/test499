@@ -34,9 +34,10 @@ public class Signup extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
 
         txt_fistname = (EditText) findViewById(R.id.txt_firstname);
         txt_lastname = (EditText) findViewById(R.id.txt_lastname);
@@ -49,6 +50,7 @@ public class Signup extends AppCompatActivity {
         signupButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 switch (v.getId()) {
                     case R.id.register_button:
                         String firstname = txt_fistname.getText().toString();
@@ -63,6 +65,7 @@ public class Signup extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"เลขบัตรประจำตัวไม่ถูกต้อง",Toast.LENGTH_LONG).show();
 
                         } else {
+                            mySQLConnect = new MySQLConnect(Signup.this);
                             mySQLConnect.sentData_signup(firstname, lastname, email, citizen_id, "1");
                         }
                         break;
