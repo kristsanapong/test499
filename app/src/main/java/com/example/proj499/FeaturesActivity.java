@@ -32,7 +32,7 @@ public class FeaturesActivity extends AppCompatActivity {
     }
     public void Profile(View view)
     {
-        Intent intent = new Intent(getBaseContext(), UserProfile.class);
+        Intent intent = new Intent(getBaseContext(), Profile.class);
         startActivity(intent);
 
     }

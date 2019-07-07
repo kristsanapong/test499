@@ -21,7 +21,7 @@ public class Technician_Account extends AppCompatActivity {
     }
     public void AddMedical(View view)
     {
-        Intent intent = new Intent(getBaseContext(), Technician_News.class);
+        Intent intent = new Intent(getBaseContext(), TechnicianAddMedicalActivity.class);
         startActivity(intent);
 
     }
