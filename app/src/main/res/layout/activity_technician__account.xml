@@ -6,4 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".Technician_Account">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="รายชื่อผู้ใช้งาน"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.079"
+        tools:layout_editor_absoluteX="0dp" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="120dp"
+    android:layout_marginBottom="120dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="500dp">
+
+
+    </ScrollView>
+</LinearLayout>
+
+    <Button
+        android:id="@+id/Add_Account_Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="เพิ่มข้อมูลผู้ใช้งาน"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
 </android.support.constraint.ConstraintLayout>
