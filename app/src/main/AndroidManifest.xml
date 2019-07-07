@@ -17,7 +17,15 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserProfile"></activity>
+        <activity android:name=".TechnicianAddMedicalActivity"></activity>
+        <activity android:name=".TechnicianAddAccountActivity" />
+        <activity android:name=".TechnicianDataAccountActivity" />
+        <activity android:name=".Queue" />
+        <activity android:name=".FeaturesActivity" />
+        <activity android:name=".MedicalActivity" />
+        <activity android:name=".Technician_Account" />
+        <activity android:name=".Technician_News" />
+        <activity android:name=".UserProfile" />
         <activity android:name=".EditBloodData" />
         <activity android:name=".ManageDataTechnician" />
         <activity android:name=".TechnicianActivity" />
