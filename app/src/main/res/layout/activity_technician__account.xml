@@ -39,6 +39,7 @@
         android:layout_marginEnd="236dp"
         android:layout_marginBottom="28dp"
         android:text="เพิ่มข้อมูลผู้ใช้งาน"
+        android:onClick="AddAccount"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
@@ -50,6 +51,7 @@
         android:layout_marginEnd="44dp"
         android:layout_marginBottom="28dp"
         android:text="เพิ่มข้อมูลแพทย์ / พยาบาล"
+        android:onClick="AddMedical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
