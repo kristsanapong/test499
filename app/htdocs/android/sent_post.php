@@ -1,35 +1,29 @@
-<?php 
- 
-	/*
-	* Created by Belal Khan
-	* website: www.simplifiedcoding.net 
-	* Retrieve Data From MySQL Database in Android
-	*/
-	
-	//database constants
-	define('DB_HOST', 'localhost');
-	define('DB_USER', 'root');
-	define('DB_PASS', '');
-	define('DB_NAME', 'blood_donation');
-	
-	//connecting to database and getting the connection object
-	$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-	
-	//Checking if any error occured while connecting
-	if (mysqli_connect_errno()) {
-		echo "Failed to connect to MySQL: " . mysqli_connect_error();
-		die();
+<?php
+	header("content-type:text/javascript;charset=utf-8");
+	define('HOST','localhost');
+	define('USER','root');
+	define('PASS','');
+	define('DB','blood_donation');
+	$con = mysqli_connect(HOST,USER,PASS,DB) or die('Unable to connect');
+
+
+	if (isset($_POST)) {
+		
+
+		$username = $_POST['username'];
+		$firstname = $_POST['firstname'];
+		$lastname = $_POST['lastname'];
+		$citizen_id = $_POST['citizen_id'];
+			
+		mysqli_set_charset($con,"utf8");
+		$sql = "INSERT INTO account (username, firstname, lastname, citizen_id) VALUES ('$username', '$firstname', '$lastname', '$citizen_id')";
+		if(mysqli_query($con,$sql)){
+			echo 'success';
+		}else{
+			echo 'fail';
+		}
+		
+		
 	}
-	
-	//creating a query
-	$stmt = $conn->prepare("INSERT INTO account (username, password, firstname, lastname, citizen_id, sex, bloodgroup) VALUES ();");
-	
-	//test data
-	$sql = "INSERT INTO account (username, password, firstname, lastname, citizen_id, sex, bloodgroup) VALUES ('wichaya_poka', '6117', 'Wichaya', 'Pokasuwanna', '1520100119381', 'M', 'B')";
-	//post data
-	if ($conn->query($sql) === TRUE) {
-    	echo "New record created successfully";
-	} else {
-    	echo "Error: " . $sql . "<br>" . $conn->error;
-	}
-	$conn->close();
+	mysqli_close($con);
+?>
