@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +27,7 @@ public class TechnicianAddAccountActivity extends AppCompatActivity {
     private List<String> items;
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
+    private RadioButton r;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,12 @@ public class TechnicianAddAccountActivity extends AppCompatActivity {
                         String firstname = txt_fistname.getText().toString();
                         String lastname = txt_lastname.getText().toString();
                         String email = txt_email.getText().toString();
+                        int selected_sex = sex.getCheckedRadioButtonId();
+                        r = findViewById(selected_sex);
+                        String sex = r.getText().toString();
+                        int selected_blood_group = blood_group.getCheckedRadioButtonId();
+                        r = findViewById(selected_blood_group);
+                        String blood_group = r.getText().toString();
 //                        String password = txt_pw.getText().toString();
 
                         String citizen_id = txt_citizen.getText().toString();
@@ -57,7 +65,7 @@ public class TechnicianAddAccountActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"เลขบัตรประจำตัวไม่ถูกต้อง",Toast.LENGTH_LONG).show();
 
                         } else {
-                            mySQLConnect.sentData_signup(firstname, lastname, email, citizen_id, "1");
+                            mySQLConnect.sentData_signup(firstname, lastname, email, citizen_id, sex, blood_group);
                         }
                         break;
                 }

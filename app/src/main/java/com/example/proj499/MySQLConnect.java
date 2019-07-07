@@ -34,6 +34,7 @@ public class MySQLConnect {
     private final Activity main;
     private List<String> list;
     private String URL = "http://192.168.1.6:8081/", GET_URL = "android/signup.php", SENT_URL="android/sent_post.php";
+    private String LOGIN;
     // 192.168.1.6
     // "http://10.0.2.2"
     public MySQLConnect(){
@@ -81,7 +82,7 @@ public class MySQLConnect {
         }catch (JSONException ex){ex.printStackTrace();}
     }
 
-    public void sentData_signup(final String firstname, final String lastname, final String email, final String citizen, String value){
+    public void sentData_signup(final String firstname, final String lastname, final String email, final String citizen, final String sex, final String blood_group){
         //StrictMode.enableDefaults();
 
 //        if (Build.VERSION.SDK_INT > 9){
@@ -99,6 +100,8 @@ public class MySQLConnect {
                     nameValuePairs.add(new BasicNameValuePair("lastname",lastname));
                     nameValuePairs.add(new BasicNameValuePair("username",email));
                     nameValuePairs.add(new BasicNameValuePair("citizen_id",citizen));
+                    nameValuePairs.add(new BasicNameValuePair("sex",sex));
+                    nameValuePairs.add(new BasicNameValuePair("bloodgroup",blood_group));
                     HttpClient httpClient = new DefaultHttpClient();
                     HttpPost httpPost = new HttpPost(URL + SENT_URL);
                     httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs,"UTF-8"));
@@ -122,8 +125,7 @@ public class MySQLConnect {
             }
         }
         SendPost post = new SendPost();
-        post.execute(firstname, lastname, email, citizen);
-
-
+        post.execute(firstname, lastname, email, citizen, sex, blood_group);
     }
+
 }
