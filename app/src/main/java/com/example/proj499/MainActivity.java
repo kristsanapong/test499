@@ -50,11 +50,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     public void processFinish(String output) {
-        if (output.equals("success")) {
-            Toast.makeText(MainActivity.this, "Login success",Toast.LENGTH_LONG).show();
+        if (output.equals("user success")) {
+            Toast.makeText(MainActivity.this, "User login success",Toast.LENGTH_LONG).show();
             intent = new Intent(this, FeaturesActivity.class);
             startActivity(intent);
-        } else {
+        } else if (output.equals("admin success")) {
+            Toast.makeText(MainActivity.this, "Admin login success",Toast.LENGTH_LONG).show();
+            intent = new Intent(this, FeaturesActivity.class);
+            startActivity(intent);
+        }
+        else {
             Toast.makeText(MainActivity.this, "Login fail",Toast.LENGTH_LONG).show();
         }
     }
