@@ -7,7 +7,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 
-public class Queue extends AppCompatActivity {
+public class Queue extends AppCompatActivity implements MySQLConnect.AsyncResponse{
 
     int i;
     int count=10;
@@ -16,12 +16,38 @@ public class Queue extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_queue);
 
+        //LinearLayout sv_Queue = (LinearLayout) findViewById(R.id.llQueue);
+        MySQLConnect mySQLConnect = new MySQLConnect();
+        mySQLConnect.delegate = this;
+        mySQLConnect.getData();
+//        for (i=0;i<count;i++){
+//            TextView text = new TextView(this);
+//            text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+//            text.setText(""+i);
+//
+//
+//            sv_Queue.addView(text);
+//        }
+    }
+
+    @Override
+    public void processFinish(String output) {
+        String[] person = output.split("#");
         LinearLayout sv_Queue = (LinearLayout) findViewById(R.id.llQueue);
-        for (i=0;i<count;i++){
+        int i = 0;
+        for (String person1 : person) {
+            i++;
+            person1 = person1.replace("*"," ");
             TextView text = new TextView(this);
             text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            text.setText(""+i);
+            text.setTextSize(20);
+            text.setText(i+". "+person1);
+
+
             sv_Queue.addView(text);
         }
     }
+
+
+
 }

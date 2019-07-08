@@ -2,9 +2,6 @@ package com.example.proj499;
 
 import android.app.Activity;
 import android.os.AsyncTask;
-import android.os.Build;
-import android.os.StrictMode;
-import android.provider.Settings;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -19,6 +16,7 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
@@ -42,6 +40,7 @@ public class MySQLConnect {
     private List<String> list;
     private String URL = "http://192.168.1.6:8081/", GET_URL = "android/signup2.php", SENT_URL="android/sent_post.php";
     private String LOGIN = "android/login.php";
+    private String QUEUE = "android/queue.php";
     // 192.168.1.6
     // "http://10.0.2.2"
     public MySQLConnect(){
@@ -56,41 +55,106 @@ public class MySQLConnect {
         void processFinish(String output);
     }
     public AsyncResponse delegate = null;
-    public List<String> getData(){
-        String url = URL + GET_URL;
-
-        StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
+    //public List<String> getData()
+    public void getData(){
+        final String url = URL + QUEUE;
+        class Get extends AsyncTask<String, Void, List<String>> {
             @Override
-            public void onResponse(String response) {
-                showJSON(response);
-                Toast.makeText(main, list.get(0), Toast.LENGTH_LONG).show();
+            protected List<String> doInBackground(String... strings) {
+                try {
+                    DefaultHttpClient httpClient = new DefaultHttpClient();
+                    HttpGet httpGet = new HttpGet(url);
+                    HttpResponse httpResponse = httpClient.execute(httpGet);
+                    HttpEntity httpEntity = httpResponse.getEntity();
+                    is = httpEntity.getContent();
+                } catch (UnsupportedEncodingException e){
+                    e.printStackTrace();
+                } catch (ClientProtocolException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.ISO_8859_1), 8);
+                    StringBuilder sb = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        sb.append(line);
+                    }
+                    is.close();
+                    list = showJSON(sb.toString());
+                    return list;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return list;
             }
-        }, new Response.ErrorListener(){
-                @Override
-                public void onErrorResponse(VolleyError error){
-                    Toast.makeText(main, error.getMessage().toString(), Toast.LENGTH_LONG).show();
-            }
-        });
+            @Override
+            protected void onPostExecute(List<String> s) {
+                super.onPostExecute(s);
+                StringBuilder result = new StringBuilder();
+                for (int i = 0; i < s.size(); i++)
+                {
+                    result.append(s.get(i)).append("#");
+                }
+                delegate.processFinish(result.toString());
 
-        RequestQueue requestQueue = Volley.newRequestQueue(main.getApplicationContext());
-        requestQueue.add(stringRequest);
-        return list;
+            }
+            public List<String> showJSON(String response){
+                String comment = "";
+                List<String> list2 = new ArrayList<String>();
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray result = jsonObject.getJSONArray("result");
+
+                    for (int i = 0; i < result.length(); i++) {
+                        JSONObject collectData = result.getJSONObject(i);
+//                        comment = collectData.getString("username");
+                        comment = collectData.getString("firstname");
+                        comment += "*" + collectData.getString("lastname");
+                        comment += "*" + collectData.getString("bloodgroup");
+                        list2.add(comment);
+                    }
+                }catch (JSONException ex){ex.printStackTrace();}
+                return list2;
+            }
+        }
+        Get get = new Get();
+        get.execute();
+//        try {
+//            DefaultHttpClient httpClient = new DefaultHttpClient();
+//            HttpGet httpGet = new HttpGet(url);
+//            HttpResponse httpResponse = httpClient.execute(httpGet);
+//            HttpEntity httpEntity = httpResponse.getEntity();
+//            is = httpEntity.getContent();
+//        } catch (UnsupportedEncodingException e){
+//            e.printStackTrace();
+//        } catch (ClientProtocolException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+//        StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
+//            public void onResponse(String response) {
+//                showJSON(response);
+//                //Toast.makeText(main, list.get(0), Toast.LENGTH_LONG).show();
+//
+//            }
+//
+//        }, new Response.ErrorListener(){
+//                @Override
+//                public void onErrorResponse(VolleyError error){
+//                    Toast.makeText(main, error.getMessage().toString(), Toast.LENGTH_LONG).show();
+//            }
+//        });
+//
+//        RequestQueue requestQueue = Volley.newRequestQueue(main.getApplicationContext());
+//        requestQueue.add(stringRequest);
+//        return list;
     }
 
-    public void showJSON(String response){
-        String comment = "";
 
-        try {
-            JSONObject jsonObject = new JSONObject(response);
-            JSONArray result = jsonObject.getJSONArray("result");
-
-            for (int i = 0; i < result.length(); i++) {
-                JSONObject collectData = result.getJSONObject(i);
-                comment = collectData.getString("comment");
-                list.add(comment);
-            }
-        }catch (JSONException ex){ex.printStackTrace();}
-    }
 
     public void sentData_signup(final String firstname, final String lastname, final String email,
                                 final String citizen, final String sex, final String blood_group, final String password){
