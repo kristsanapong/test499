@@ -16,9 +16,10 @@
 		$citizen_id = $_POST['citizen_id'];
 		$sex = $_POST['sex'];
 		$bloodgroup = $_POST['bloodgroup'];
+		$password = $_POST['password'];
 			
 		mysqli_set_charset($con,"utf8");
-		$sql = "INSERT INTO account (username, firstname, lastname, citizen_id, sex, bloodgroup) VALUES ('$username', '$firstname', '$lastname', '$citizen_id', '$sex', '$bloodgroup')";
+		$sql = "INSERT INTO account (username, password, firstname, lastname, citizen_id, sex, bloodgroup) VALUES ('$username', '$password', '$firstname', '$lastname', '$citizen_id', '$sex', '$bloodgroup')";
 		if(mysqli_query($con,$sql)){
 			echo 'success';
 		}else{
