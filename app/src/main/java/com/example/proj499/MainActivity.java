@@ -10,11 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, MySQLConnect.AsyncResponse {
     Button login,signup;
     EditText user,pass;
     Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,13 +36,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.login_button:
-                intent = new Intent(this, FeaturesActivity.class);
-                startActivity(intent);
+                String username = user.getText().toString();
+                String password = pass.getText().toString();
+                MySQLConnect mySQLConnect = new MySQLConnect(); //main.this
+                mySQLConnect.delegate = this;
+                mySQLConnect.Login(username, password);
                 break;
             case R.id.signup_button:
                 intent = new Intent(this, Signup.class);
                 startActivity(intent);
                 break;
+        }
+    }
+    @Override
+    public void processFinish(String output) {
+        if (output.equals("success")) {
+            Toast.makeText(MainActivity.this, "Login success",Toast.LENGTH_LONG).show();
+            intent = new Intent(this, FeaturesActivity.class);
+            startActivity(intent);
+        } else {
+            Toast.makeText(MainActivity.this, "Login fail",Toast.LENGTH_LONG).show();
         }
     }
 }
