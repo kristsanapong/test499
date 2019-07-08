@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 public class Profile extends AppCompatActivity {
@@ -21,6 +22,12 @@ public class Profile extends AppCompatActivity {
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+
+    }
+    public void ManageData(View view)
+    {
+        Intent intent = new Intent(getBaseContext(), ManageDataTechnician.class);
+        startActivity(intent);
 
     }
 

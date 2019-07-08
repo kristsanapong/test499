@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -19,39 +18,33 @@ import android.widget.Toast;
 import java.util.Calendar;
 import java.util.List;
 
-import static java.lang.Float.parseFloat;
-
-public class Signup extends AppCompatActivity {
-
-    private static final String TAG = "Signup";
-
+public class TechnicianAddAccountActivity extends AppCompatActivity {
+    private static final String TAG = "TechnicianAddAccount";
     private EditText txt_email, txt_pw, txt_fistname, txt_lastname, txt_citizen;
     private RadioGroup sex, blood_group;
     private Button signupButt;
     private MySQLConnect mySQLConnect;
     private List<String> items;
     private TextView mDisplayDate;
-    private RadioButton r;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
+    private RadioButton r;
 
     @Override
-    protected void onCreate(final Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-
-        txt_fistname = (EditText) findViewById(R.id.txt_firstname);
-        txt_lastname = (EditText) findViewById(R.id.txt_lastname);
-        txt_email = (EditText) findViewById(R.id.txt_email);
-        txt_citizen = (EditText) findViewById(R.id.txt_citizen);
-        sex = (RadioGroup) findViewById(R.id.sex);
-        blood_group = (RadioGroup) findViewById(R.id.blood_group);
-        signupButt = (Button)findViewById(R.id.register_button);
-        mDisplayDate = (TextView) findViewById(R.id.bdDate);
+        txt_fistname = (EditText) findViewById(R.id.add_firstname);
+        txt_lastname = (EditText) findViewById(R.id.add_lastname);
+        txt_email = (EditText) findViewById(R.id.add_email);
+        txt_citizen = (EditText) findViewById(R.id.add_citizen_id);
+        sex = (RadioGroup) findViewById(R.id.add_sex);
+        blood_group = (RadioGroup) findViewById(R.id.add_blood_group);
+        signupButt = (Button)findViewById(R.id.add_account_button);
+        mDisplayDate = (TextView) findViewById(R.id.add_bdDate);
         signupButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 switch (v.getId()) {
                     case R.id.register_button:
                         String firstname = txt_fistname.getText().toString();
@@ -72,7 +65,6 @@ public class Signup extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"เลขบัตรประจำตัวไม่ถูกต้อง",Toast.LENGTH_LONG).show();
 
                         } else {
-                            mySQLConnect = new MySQLConnect(Signup.this);
                             mySQLConnect.sentData_signup(firstname, lastname, email, citizen_id, sex, blood_group);
                         }
                         break;
@@ -89,7 +81,7 @@ public class Signup extends AppCompatActivity {
                 int day = cal.get(Calendar.DAY_OF_MONTH);
 
 
-                DatePickerDialog dialog = new DatePickerDialog(Signup.this,
+                DatePickerDialog dialog = new DatePickerDialog(TechnicianAddAccountActivity.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         mDateSetListener,
                         year, month, day);
@@ -129,20 +121,10 @@ public class Signup extends AppCompatActivity {
         }
         int last_digit = Integer.parseInt(digitArray[len]);
         if (ans == last_digit){
-        return true;
+            return true;
         }
         else {
-        return false;
-            }
-
-
+            return false;
+        }
     }
 }
-
-
-
-
-
-
-
-

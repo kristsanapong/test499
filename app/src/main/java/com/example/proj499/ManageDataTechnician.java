@@ -5,23 +5,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class TechnicianActivity extends AppCompatActivity {
+public class ManageDataTechnician extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_technician);
+        setContentView(R.layout.activity_manage_data_technician);
     }
 
-    public void UserData(View view)
+    public void ManageMedical(View view)
     {
-        Intent intent = new Intent(getBaseContext(), Technician_Account.class);
+        Intent intent = new Intent(getBaseContext(), MedicalActivity.class);
         startActivity(intent);
 
     }
-    public void NewsData(View view)
+    public void ManageAdmin(View view)
     {
-        Intent intent = new Intent(getBaseContext(), Technician_News.class);
+        Intent intent = new Intent(getBaseContext(), TechnicianActivity.class);
         startActivity(intent);
 
     }

@@ -7,15 +7,28 @@
          location permissions for the 'MyLocation' functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
-        android:icon="@drawable/applogo"
+        android:icon="@mipmap/ic_applogo"
         android:label="Blood Bank"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TechnicianActivity"></activity>
+        <activity android:name=".TechnicianAddMedicalActivity"></activity>
+        <activity android:name=".TechnicianAddAccountActivity" />
+        <activity android:name=".TechnicianDataAccountActivity" />
+        <activity android:name=".Queue" />
+        <activity android:name=".FeaturesActivity" />
+        <activity android:name=".MedicalActivity" />
+        <activity android:name=".Technician_Account" />
+        <activity android:name=".Technician_News" />
+        <activity android:name=".UserProfile" />
+        <activity android:name=".EditBloodData" />
+        <activity android:name=".ManageDataTechnician" />
+        <activity android:name=".TechnicianActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

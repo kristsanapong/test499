@@ -1,6 +1,7 @@
 package com.example.proj499;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.StrictMode;
 import android.provider.Settings;
@@ -32,8 +33,10 @@ public class MySQLConnect {
 
     private final Activity main;
     private List<String> list;
-    private String URL = "http://10.0.2.2", GET_URL = "android/signup.php", SENT_URL="android/sent_post.php";
-
+    private String URL = "http://192.168.1.6:8081/", GET_URL = "android/signup.php", SENT_URL="android/sent_post.php";
+    private String LOGIN;
+    // 192.168.1.6
+    // "http://10.0.2.2"
     public MySQLConnect(){
         main = null;
     }
@@ -44,7 +47,6 @@ public class MySQLConnect {
     }
 
     public List<String> getData(){
-
         String url = URL + GET_URL;
 
         StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
@@ -80,30 +82,50 @@ public class MySQLConnect {
         }catch (JSONException ex){ex.printStackTrace();}
     }
 
-    public void sentData_signup(String value){
-        StrictMode.enableDefaults();
-        if (Build.VERSION.SDK_INT > 9){
-            StrictMode.ThreadPolicy policy =  new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
+    public void sentData_signup(final String firstname, final String lastname, final String email, final String citizen, final String sex, final String blood_group){
+        //StrictMode.enableDefaults();
+
+//        if (Build.VERSION.SDK_INT > 9){
+//            StrictMode.ThreadPolicy policy =  new StrictMode.ThreadPolicy.Builder().permitAll().build();
+//            StrictMode.setThreadPolicy(policy);
+//        }
+        class SendPost extends AsyncTask<String, Void, String> { //post
+            @Override
+            protected String doInBackground(String... strings) {
+
+                try {
+                    ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+                    nameValuePairs.add(new BasicNameValuePair("isAdd","true"));
+                    nameValuePairs.add(new BasicNameValuePair("firstname",firstname));
+                    nameValuePairs.add(new BasicNameValuePair("lastname",lastname));
+                    nameValuePairs.add(new BasicNameValuePair("username",email));
+                    nameValuePairs.add(new BasicNameValuePair("citizen_id",citizen));
+                    nameValuePairs.add(new BasicNameValuePair("sex",sex));
+                    nameValuePairs.add(new BasicNameValuePair("bloodgroup",blood_group));
+                    HttpClient httpClient = new DefaultHttpClient();
+                    HttpPost httpPost = new HttpPost(URL + SENT_URL);
+                    httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs,"UTF-8"));
+                    httpClient.execute(httpPost);
+
+
+                }catch (UnsupportedEncodingException e){
+                    e.printStackTrace();
+                } catch (ClientProtocolException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return "Data Inserted Successfully";
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                Toast.makeText(main, "Complete",Toast.LENGTH_LONG).show();
+            }
         }
-
-        try {
-            ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-            nameValuePairs.add(new BasicNameValuePair("isAdd","true"));
-            nameValuePairs.add(new BasicNameValuePair("comment",value));
-            HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost(URL + SENT_URL);
-            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs,"UTF-8"));
-            httpClient.execute(httpPost);
-
-            Toast.makeText(main, "Complete",Toast.LENGTH_LONG).show();
-        }catch (UnsupportedEncodingException e){
-            e.printStackTrace();
-        } catch (ClientProtocolException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        SendPost post = new SendPost();
+        post.execute(firstname, lastname, email, citizen, sex, blood_group);
     }
+
 }
