@@ -15,9 +15,9 @@
         android:label="Blood Bank"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".TechnicianActivity" />
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -29,7 +29,8 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
+        <activity android:name=".TechnicianAddNewsActivity"></activity>
+        <activity android:name=".TechnicianActivity" />
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
@@ -55,26 +56,17 @@
         <activity
             android:name=".Profile"
             android:label="@string/title_activity_profile" />
-        <activity
-            android:name=".ManageDataTechnician" />
-        <activity
-            android:name=".EditBloodData" />
-        <activity
-            android:name=".MedicalActivity" />
+        <activity android:name=".ManageDataTechnician" />
+        <activity android:name=".EditBloodData" />
+        <activity android:name=".MedicalActivity" />
         <activity
             android:name=".News"
             android:label="@string/title_activity_news" />
-        <activity
-            android:name=".Technician_Account" />
-        <activity
-            android:name=".Technician_News" />
-
-        <activity
-            android:name=".TechnicianAddMedicalActivity" />
-        <activity
-            android:name=".TechnicianDataAccountActivity" />
-        <activity
-            android:name=".UserProfile" />
+        <activity android:name=".Technician_Account" />
+        <activity android:name=".Technician_News" />
+        <activity android:name=".TechnicianAddMedicalActivity" />
+        <activity android:name=".TechnicianDataAccountActivity" />
+        <activity android:name=".UserProfile" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

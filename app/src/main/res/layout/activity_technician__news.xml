@@ -27,7 +27,13 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="500dp">
+            <LinearLayout
+                android:id="@+id/llTechnician_News"
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
 
+            </LinearLayout>
 
         </ScrollView>
     </LinearLayout>
@@ -38,6 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:text="เพิ่มข้อมูลประชาสัมพันธ์"
+        android:onClick="AddNews"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
