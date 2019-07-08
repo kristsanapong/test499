@@ -39,6 +39,12 @@
             android:name=".bloodinformation"
             android:label="@string/title_activity_bloodinformation" />
         <activity
+            android:name=".FeaturesActivity"
+            android:label="FeaturesActivity" />
+        <activity
+            android:name=".Queue"
+            android:label="Queue" />
+        <activity
             android:name=".blooddonation"
             android:label="Blood Donation" />
         <activity android:name=".Signup" />
@@ -46,8 +52,26 @@
             android:name=".Profile"
             android:label="@string/title_activity_profile" />
         <activity
+            android:name=".ManageDataTechnician" />
+        <activity
+            android:name=".EditBloodData" />
+        <activity
+            android:name=".MedicalActivity" />
+        <activity
             android:name=".News"
             android:label="@string/title_activity_news" />
+        <activity
+            android:name=".Technician_Account" />
+        <activity
+            android:name=".Technician_News" />
+        <activity
+            android:name=".TechnicianAddAccountActivity" />
+        <activity
+            android:name=".TechnicianAddMedicalActivity" />
+        <activity
+            android:name=".TechnicianDataAccountActivity" />
+        <activity
+            android:name=".UserProfile" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
