@@ -39,7 +39,7 @@ public class Signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-
+        txt_pw = (EditText) findViewById(R.id.txt_pw);
         txt_fistname = (EditText) findViewById(R.id.txt_firstname);
         txt_lastname = (EditText) findViewById(R.id.txt_lastname);
         txt_email = (EditText) findViewById(R.id.txt_email);
@@ -54,27 +54,33 @@ public class Signup extends AppCompatActivity {
 
                 switch (v.getId()) {
                     case R.id.register_button:
-                        String firstname = txt_fistname.getText().toString();
-                        String lastname = txt_lastname.getText().toString();
-                        String email = txt_email.getText().toString();
-                        int selected_sex = sex.getCheckedRadioButtonId();
-                        r = findViewById(selected_sex);
-                        String sex = r.getText().toString();
-                        int selected_blood_group = blood_group.getCheckedRadioButtonId();
-                        r = findViewById(selected_blood_group);
-                        String blood_group = r.getText().toString();
-//                        String password = txt_pw.getText().toString();
+                        try {
+                            String firstname = txt_fistname.getText().toString();
+                            String lastname = txt_lastname.getText().toString();
+                            String email = txt_email.getText().toString();
+                            int selected_sex = sex.getCheckedRadioButtonId();
+                            r = findViewById(selected_sex);
+                            String sex = r.getText().toString();
+                            int selected_blood_group = blood_group.getCheckedRadioButtonId();
+                            r = findViewById(selected_blood_group);
+                            String blood_group = r.getText().toString();
+                            String password = txt_pw.getText().toString();
 
-                        String citizen_id = txt_citizen.getText().toString();
-                        boolean check = checkCitizen(citizen_id);
+                            String citizen_id = txt_citizen.getText().toString();
+                            boolean check = checkCitizen(citizen_id);
 
-                        if (!check){
-                            Toast.makeText(getApplicationContext(),"เลขบัตรประจำตัวไม่ถูกต้อง",Toast.LENGTH_LONG).show();
+                            if (!check){
+                                Toast.makeText(getApplicationContext(),"เลขบัตรประจำตัวไม่ถูกต้อง",Toast.LENGTH_LONG).show();
 
-                        } else {
-                            mySQLConnect = new MySQLConnect(Signup.this);
-                            mySQLConnect.sentData_signup(firstname, lastname, email, citizen_id, sex, blood_group);
+                            } else {
+                                mySQLConnect = new MySQLConnect(Signup.this);
+                                mySQLConnect.sentData_signup(firstname, lastname, email, citizen_id, sex, blood_group, password);
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            Toast.makeText(getApplicationContext(),"กรุณากรอกข้อมูลให้ครบถ้วน",Toast.LENGTH_LONG).show();
                         }
+
                         break;
                 }
             }

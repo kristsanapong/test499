@@ -34,6 +34,7 @@ public class TechnicianAddAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+        txt_pw = (EditText) findViewById(R.id.txt_pw);
         txt_fistname = (EditText) findViewById(R.id.add_firstname);
         txt_lastname = (EditText) findViewById(R.id.add_lastname);
         txt_email = (EditText) findViewById(R.id.add_email);
@@ -56,7 +57,7 @@ public class TechnicianAddAccountActivity extends AppCompatActivity {
                         int selected_blood_group = blood_group.getCheckedRadioButtonId();
                         r = findViewById(selected_blood_group);
                         String blood_group = r.getText().toString();
-//                        String password = txt_pw.getText().toString();
+                        String password = txt_pw.getText().toString();
 
                         String citizen_id = txt_citizen.getText().toString();
                         boolean check = checkCitizen(citizen_id);
@@ -65,7 +66,7 @@ public class TechnicianAddAccountActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"เลขบัตรประจำตัวไม่ถูกต้อง",Toast.LENGTH_LONG).show();
 
                         } else {
-                            mySQLConnect.sentData_signup(firstname, lastname, email, citizen_id, sex, blood_group);
+                            mySQLConnect.sentData_signup(firstname, lastname, email, citizen_id, sex, blood_group, password);
                         }
                         break;
                 }

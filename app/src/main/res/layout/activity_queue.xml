@@ -29,9 +29,16 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <ScrollView
+            android:id="@+id/svQueue"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/llQueue"
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
+            </LinearLayout>
 
         </ScrollView>
     </LinearLayout>

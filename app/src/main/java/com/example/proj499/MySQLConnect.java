@@ -93,7 +93,7 @@ public class MySQLConnect {
     }
 
     public void sentData_signup(final String firstname, final String lastname, final String email,
-                                final String citizen, final String sex, final String blood_group){
+                                final String citizen, final String sex, final String blood_group, final String password){
         //StrictMode.enableDefaults();
 
 //        if (Build.VERSION.SDK_INT > 9){
@@ -113,6 +113,7 @@ public class MySQLConnect {
                     nameValuePairs.add(new BasicNameValuePair("citizen_id",citizen));
                     nameValuePairs.add(new BasicNameValuePair("sex",sex));
                     nameValuePairs.add(new BasicNameValuePair("bloodgroup",blood_group));
+                    nameValuePairs.add(new BasicNameValuePair("password",password));
                     HttpClient httpClient = new DefaultHttpClient();
                     HttpPost httpPost = new HttpPost(URL + SENT_URL);
                     httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs,"UTF-8"));
@@ -136,7 +137,7 @@ public class MySQLConnect {
             }
         }
         SendPost post = new SendPost();
-        post.execute(firstname, lastname, email, citizen, sex, blood_group);
+        post.execute(firstname, lastname, email, citizen, sex, blood_group, password);
     }
     public void Login(final String username, final String password)
     {
