@@ -7,11 +7,13 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class Profile extends AppCompatActivity {
 
     private TextView mTextMessage;
+    private Button logout;
 
 
 
@@ -22,7 +24,7 @@ public class Profile extends AppCompatActivity {
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-
+        logout = findViewById(R.id.button3);
     }
     public void ManageData(View view)
     {
@@ -30,5 +32,10 @@ public class Profile extends AppCompatActivity {
         startActivity(intent);
 
     }
-
+    public void Logout(View view)
+    {
+        Intent intent = new Intent(getBaseContext(), MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
 }
