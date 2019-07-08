@@ -41,8 +41,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Add a marker in Sydney and move the camera
         LatLng bloodplace = new LatLng(18.789599, 98.975290);
         mMap.addMarker(new MarkerOptions().position(bloodplace).title("งานธนาคารเลือด โรงพยาบาลมหาราชนครเชียงใหม่"));
-        float zoomlevel = 16.0f;
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bloodplace,zoomlevel));
-
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(bloodplace));
     }
 }
