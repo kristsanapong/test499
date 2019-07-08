@@ -40,7 +40,7 @@ public class MySQLConnect {
     private final Activity main;
     static InputStream is = null;
     private List<String> list;
-    private String URL = "http://10.80.118.111:8081/", GET_URL = "android/signup2.php", SENT_URL="android/sent_post.php";
+    private String URL = "http://192.168.1.6:8081/", GET_URL = "android/signup2.php", SENT_URL="android/sent_post.php";
     private String LOGIN = "android/login.php";
     // 192.168.1.6
     // "http://10.0.2.2"
@@ -117,7 +117,9 @@ public class MySQLConnect {
                     HttpClient httpClient = new DefaultHttpClient();
                     HttpPost httpPost = new HttpPost(URL + SENT_URL);
                     httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs,"UTF-8"));
-                    httpClient.execute(httpPost);
+                    HttpResponse httpResponse =  httpClient.execute(httpPost);
+                    HttpEntity httpEntity = httpResponse.getEntity();
+                    is = httpEntity.getContent();
 
 
                 }catch (UnsupportedEncodingException e){
@@ -127,13 +129,34 @@ public class MySQLConnect {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                return "Data Inserted Successfully";
+                try {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.ISO_8859_1), 8);
+                    StringBuilder sb = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        sb.append(line);
+                    }
+                    is.close();
+                    if (sb.toString().contains("success"))
+                    {
+                        return "Data Inserted Successfully";
+                    } else {
+                        return "false";
+                    }
+
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return "false";
+//                return "Data Inserted Successfully";
             }
 
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                Toast.makeText(main, "Register complete",Toast.LENGTH_LONG).show();
+                delegate.processFinish(s);
+
             }
         }
         SendPost post = new SendPost();
@@ -174,7 +197,15 @@ public class MySQLConnect {
                         sb.append(line);
                     }
                     is.close();
-                    return sb.toString();
+                    if (sb.toString().contains("Unable to connect"))
+                    {
+                        return "Unable to connect";
+                    } else if (sb.toString().contains("admin")) {
+                        return "admin success";
+                    } else if (sb.toString().contains("user")) {
+                        return "user success";
+                    }
+
 
                 } catch (IOException e) {
                     e.printStackTrace();

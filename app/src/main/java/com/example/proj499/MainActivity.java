@@ -59,7 +59,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent = new Intent(this, FeaturesActivity.class);
             startActivity(intent);
         }
-        else {
+        else if (output.equals("Unable to connect")){
+            Toast.makeText(MainActivity.this, "Unable to connect",Toast.LENGTH_LONG).show();
+        } else {
             Toast.makeText(MainActivity.this, "Login fail",Toast.LENGTH_LONG).show();
         }
     }

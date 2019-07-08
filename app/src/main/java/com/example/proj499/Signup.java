@@ -21,14 +21,14 @@ import java.util.List;
 
 import static java.lang.Float.parseFloat;
 
-public class Signup extends AppCompatActivity {
+public class Signup extends AppCompatActivity implements View.OnClickListener, MySQLConnect.AsyncResponse{
 
     private static final String TAG = "Signup";
 
     private EditText txt_email, txt_pw, txt_fistname, txt_lastname, txt_citizen;
     private RadioGroup sex, blood_group;
     private Button signupButt;
-    private MySQLConnect mySQLConnect;
+    //private MySQLConnect mySQLConnect;
     private List<String> items;
     private TextView mDisplayDate;
     private RadioButton r;
@@ -48,43 +48,47 @@ public class Signup extends AppCompatActivity {
         blood_group = (RadioGroup) findViewById(R.id.blood_group);
         signupButt = (Button)findViewById(R.id.register_button);
         mDisplayDate = (TextView) findViewById(R.id.bdDate);
-        signupButt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                switch (v.getId()) {
-                    case R.id.register_button:
-                        try {
-                            String firstname = txt_fistname.getText().toString();
-                            String lastname = txt_lastname.getText().toString();
-                            String email = txt_email.getText().toString();
-                            int selected_sex = sex.getCheckedRadioButtonId();
-                            r = findViewById(selected_sex);
-                            String sex = r.getText().toString();
-                            int selected_blood_group = blood_group.getCheckedRadioButtonId();
-                            r = findViewById(selected_blood_group);
-                            String blood_group = r.getText().toString();
-                            String password = txt_pw.getText().toString();
-
-                            String citizen_id = txt_citizen.getText().toString();
-                            boolean check = checkCitizen(citizen_id);
-
-                            if (!check){
-                                Toast.makeText(getApplicationContext(),"เลขบัตรประจำตัวไม่ถูกต้อง",Toast.LENGTH_LONG).show();
-
-                            } else {
-                                mySQLConnect = new MySQLConnect(Signup.this);
-                                mySQLConnect.sentData_signup(firstname, lastname, email, citizen_id, sex, blood_group, password);
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            Toast.makeText(getApplicationContext(),"กรุณากรอกข้อมูลให้ครบถ้วน",Toast.LENGTH_LONG).show();
-                        }
-
-                        break;
-                }
-            }
-        });
+        signupButt.setOnClickListener(this);
+//        signupButt.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                switch (v.getId()) {
+//                    case R.id.register_button:
+//
+//                        try {
+//                            String firstname = txt_fistname.getText().toString();
+//                            String lastname = txt_lastname.getText().toString();
+//                            String email = txt_email.getText().toString();
+//                            int selected_sex = sex.getCheckedRadioButtonId();
+//                            r = findViewById(selected_sex);
+//                            String sex = r.getText().toString();
+//                            int selected_blood_group = blood_group.getCheckedRadioButtonId();
+//                            r = findViewById(selected_blood_group);
+//                            String blood_group = r.getText().toString();
+//                            String password = txt_pw.getText().toString();
+//
+//                            String citizen_id = txt_citizen.getText().toString();
+//                            boolean check = checkCitizen(citizen_id);
+//
+//                            if (!check){
+//                                Toast.makeText(getApplicationContext(),"เลขบัตรประจำตัวไม่ถูกต้อง",Toast.LENGTH_LONG).show();
+//
+//                            } else {
+//                                MySQLConnect mySQLConnect = new MySQLConnect(Signup.this);
+//
+//                                mySQLConnect.sentData_signup(firstname, lastname, email, citizen_id, sex, blood_group, password);
+//                                //finish();
+//                            }
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                            Toast.makeText(getApplicationContext(),"กรุณากรอกข้อมูลให้ครบถ้วน",Toast.LENGTH_LONG).show();
+//                        }
+//
+//                        break;
+//                }
+//            }
+//        });
         mDisplayDate.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -142,6 +146,53 @@ public class Signup extends AppCompatActivity {
             }
 
 
+    }
+    @Override
+    public void processFinish(String output) {
+        if (output.equals("Data Inserted Successfully")) {
+            Toast.makeText(this, "Register complete",Toast.LENGTH_LONG).show();
+            finish();
+        } else {
+            Toast.makeText(this, "Register fail",Toast.LENGTH_LONG).show();
+        }
+    }
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+            case R.id.register_button:
+
+                try {
+                    String firstname = txt_fistname.getText().toString();
+                    String lastname = txt_lastname.getText().toString();
+                    String email = txt_email.getText().toString();
+                    int selected_sex = sex.getCheckedRadioButtonId();
+                    r = findViewById(selected_sex);
+                    String sex = r.getText().toString();
+                    int selected_blood_group = blood_group.getCheckedRadioButtonId();
+                    r = findViewById(selected_blood_group);
+                    String blood_group = r.getText().toString();
+                    String password = txt_pw.getText().toString();
+
+                    String citizen_id = txt_citizen.getText().toString();
+                    boolean check = checkCitizen(citizen_id);
+
+                    if (!check){
+                        Toast.makeText(getApplicationContext(),"เลขบัตรประจำตัวไม่ถูกต้อง",Toast.LENGTH_LONG).show();
+
+                    } else {
+                        MySQLConnect mySQLConnect = new MySQLConnect();
+                        mySQLConnect.delegate = this;
+                        mySQLConnect.sentData_signup(firstname, lastname, email, citizen_id, sex, blood_group, password);
+                        //finish();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(),"กรุณากรอกข้อมูลให้ครบถ้วน",Toast.LENGTH_LONG).show();
+                }
+
+                break;
+        }
     }
 }
 
