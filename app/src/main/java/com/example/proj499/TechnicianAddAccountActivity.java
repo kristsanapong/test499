@@ -34,20 +34,20 @@ public class TechnicianAddAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        txt_pw = (EditText) findViewById(R.id.txt_pw);
-        txt_fistname = (EditText) findViewById(R.id.add_firstname);
-        txt_lastname = (EditText) findViewById(R.id.add_lastname);
-        txt_email = (EditText) findViewById(R.id.add_email);
-        txt_citizen = (EditText) findViewById(R.id.add_citizen_id);
-        sex = (RadioGroup) findViewById(R.id.add_sex);
-        blood_group = (RadioGroup) findViewById(R.id.add_blood_group);
+        txt_pw = (EditText) findViewById(R.id.account_password);
+        txt_fistname = (EditText) findViewById(R.id.account_firstname);
+        txt_lastname = (EditText) findViewById(R.id.account_lastname);
+        txt_email = (EditText) findViewById(R.id.account_username);
+        txt_citizen = (EditText) findViewById(R.id.account_citizen);
+        sex = (RadioGroup) findViewById(R.id.account_sex);
+        blood_group = (RadioGroup) findViewById(R.id.account_bloodgroup);
         signupButt = (Button)findViewById(R.id.add_account_button);
-        mDisplayDate = (TextView) findViewById(R.id.add_bdDate);
+        mDisplayDate = (TextView) findViewById(R.id.account_bdDate);
         signupButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
-                    case R.id.register_button:
+                    case R.id.account_button_add:
                         String firstname = txt_fistname.getText().toString();
                         String lastname = txt_lastname.getText().toString();
                         String email = txt_email.getText().toString();
@@ -58,9 +58,9 @@ public class TechnicianAddAccountActivity extends AppCompatActivity {
                         r = findViewById(selected_blood_group);
                         String blood_group = r.getText().toString();
                         String password = txt_pw.getText().toString();
-
                         String citizen_id = txt_citizen.getText().toString();
-                        boolean check = checkCitizen(citizen_id);
+
+                        boolean check = accountCheckCitizen(citizen_id);
 
                         if (!check){
                             Toast.makeText(getApplicationContext(),"เลขบัตรประจำตัวไม่ถูกต้อง",Toast.LENGTH_LONG).show();
@@ -102,7 +102,7 @@ public class TechnicianAddAccountActivity extends AppCompatActivity {
         };
     }
 
-    public boolean checkCitizen(String id) {
+    public boolean accountCheckCitizen(String id) {
         int len = String.valueOf(id).length();
         int sum = 0;
         String digitArray[] = id.split("");

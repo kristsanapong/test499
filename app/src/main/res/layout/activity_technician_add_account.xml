@@ -3,165 +3,118 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/account_button"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TechnicianAddAccountActivity">
 
-    <EditText
-        android:id="@+id/add_email"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="42dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="459dp"
-        android:ems="10"
-        android:hint="อีเมลล์"
-        android:inputType="textEmailAddress" />
 
     <EditText
-        android:id="@+id/add_firstname"
-        android:layout_width="161dp"
+        android:id="@+id/account_firstname"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/add_password"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="206dp"
-        android:layout_marginBottom="342dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="98dp"
         android:ems="10"
         android:hint="ชื่อ"
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/add_lastname"
-        android:layout_width="161dp"
+        android:id="@+id/account_lastname"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/add_password"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="219dp"
+        android:layout_below="@+id/account_firstname"
+        android:layout_alignStart="@+id/account_firstname"
+        android:layout_alignEnd="@+id/account_firstname"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="41dp"
         android:layout_marginEnd="0dp"
-        android:layout_marginBottom="342dp"
         android:ems="10"
         android:hint="นามสกุล"
         android:inputType="textPersonName" />
 
-    <Button
-        android:id="@+id/add_account_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="167dp"
-        android:layout_marginBottom="37dp"
-        android:text="เพิ่มข้อมูล" />
-
-
-    <EditText
-        android:id="@+id/add_password"
-        android:layout_width="339dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/add_email"
-        android:layout_alignEnd="@+id/add_email"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="401dp"
-        android:ems="10"
-        android:hint="รหัสผ่าน"
-        android:inputType="textPassword" />
-
-    <TextView
-        android:id="@+id/add_bdDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="241dp"
-        android:hint="วันเกิด (วัน/เดือน/ปี)"
-        android:inputType="date"
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/add_citizen_id"
-        android:layout_width="290dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/add_password"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="78dp"
-        android:layout_marginBottom="176dp"
-        android:ems="10"
-        android:hint="บัตรประจำตัวประชาชน 13 หลัก"
-        android:inputType="number"
-        android:maxLength="13" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="324dp"
-        android:layout_marginBottom="298dp"
-
-        android:text="เพศ" />
-
     <RadioGroup
-        android:id="@+id/add_sex"
+        android:id="@+id/account_sex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="108dp"
-        android:layout_marginEnd="115dp"
-        android:layout_marginBottom="292dp"
+        android:layout_below="@+id/account_lastname"
+        android:layout_alignStart="@+id/account_lastname"
+        android:layout_alignEnd="@+id/account_lastname"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="3dp"
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/add_man"
+            android:id="@+id/Account_man"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="ชาย" />
 
         <RadioButton
-            android:id="@+id/add_woman"
+            android:id="@+id/radioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="หญิง" />
+
+
     </RadioGroup>
 
-    <RadioGroup
-        android:id="@+id/add_blood_group"
+    <EditText
+        android:id="@+id/account_bdDate"
         android:layout_width="wrap_content"
-        android:layout_height="51dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="80dp"
-        android:layout_marginEnd="99dp"
-        android:layout_marginBottom="105dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/account_sex"
+        android:layout_alignStart="@+id/account_sex"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="วันเกิด (วัน/เดือน/ปี)"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/account_citizen"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/account_bdDate"
+        android:layout_alignStart="@+id/account_bdDate"
+        android:layout_alignEnd="@+id/account_bdDate"
+        android:layout_marginStart="-4dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="-72dp"
+        android:ems="10"
+        android:hint="บัตรประจำตัวประชาชน 13 หลัก"
+        android:inputType="number"
+        android:maxLength="13" />
+
+    <RadioGroup
+        android:id="@+id/account_bloodgroup"
+        android:layout_width="252dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/account_citizen"
+        android:layout_alignStart="@+id/account_citizen"
+        android:layout_alignEnd="@+id/account_citizen"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="38dp"
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/add_blood_A"
+            android:id="@+id/radioButton8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:layout_below="@+id/blood_group"
+            android:layout_alignStart="@+id/blood_group"
             android:layout_weight="1"
             android:text="A" />
 
         <RadioButton
-            android:id="@+id/add_blood_B"
+            android:id="@+id/radioButton7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -169,7 +122,7 @@
             android:text="B" />
 
         <RadioButton
-            android:id="@+id/add_blood_O"
+            android:id="@+id/radioButton10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
@@ -177,26 +130,52 @@
             android:text="O" />
 
         <RadioButton
-            android:id="@+id/add_blood_AB"
+            android:id="@+id/radioButton9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="AB" />
     </RadioGroup>
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/account_username"
+        android:layout_width="292dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="600dp"
-        android:gravity="center"
-        android:text="เพิ่มข้อมูลผู้ใช้งาน"
-        android:textSize="25dp" />
+        android:layout_below="@+id/account_bloodgroup"
+        android:layout_alignStart="@+id/account_bloodgroup"
+        android:layout_alignEnd="@+id/account_bloodgroup"
+        android:layout_marginStart="-3dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="-37dp"
+        android:ems="10"
+        android:hint="อีเมลล์"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/account_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/account_username"
+        android:layout_alignStart="@+id/account_username"
+        android:layout_alignEnd="@+id/account_username"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="77dp"
+        android:ems="10"
+        android:hint="รหัสผ่าน"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/account_button_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/account_password"
+        android:layout_alignStart="@+id/account_password"
+        android:layout_alignEnd="@+id/account_password"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="26dp"
+        android:text="เพิ่มข้อมูล" />
 
 </RelativeLayout>
 

@@ -11,31 +11,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="จัดการข้อมูลผู้ใช้งาน"
         android:onClick="UserData"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="จัดการข้อมูลผู้ใช้งาน"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.422" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/News_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="272dp"
         android:onClick="NewsData"
         android:text="จัดการข้อมูลประชาสัมพันธ์"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/Account_Button"
         app:layout_constraintStart_toStartOf="@+id/Account_Button"
-        app:layout_constraintTop_toBottomOf="@+id/Account_Button"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/Account_Button" />
 
 
 </android.support.constraint.ConstraintLayout>

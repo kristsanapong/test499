@@ -42,5 +42,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng bloodplace = new LatLng(18.789599, 98.975290);
         mMap.addMarker(new MarkerOptions().position(bloodplace).title("งานธนาคารเลือด โรงพยาบาลมหาราชนครเชียงใหม่"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(bloodplace));
+        mMap.animateCamera( CameraUpdateFactory.zoomTo( 16.0f ));
     }
 }

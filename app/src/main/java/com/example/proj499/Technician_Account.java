@@ -15,7 +15,7 @@ public class Technician_Account extends AppCompatActivity {
 
     public void AddAccount(View view)
     {
-        Intent intent = new Intent(getBaseContext(), TechnicianAddAccountActivity.class);
+        Intent intent = new Intent(getBaseContext(), Signup.class);
         startActivity(intent);
 
     }

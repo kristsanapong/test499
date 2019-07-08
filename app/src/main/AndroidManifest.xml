@@ -33,6 +33,9 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity
+            android:name=".TechnicianAddAccountActivity"
+            android:label="เพิ่มข้อมูลผู้ใช้งาน" />
+        <activity
             android:name=".History"
             android:label="@string/title_activity_history" />
         <activity
@@ -64,8 +67,7 @@
             android:name=".Technician_Account" />
         <activity
             android:name=".Technician_News" />
-        <activity
-            android:name=".TechnicianAddAccountActivity" />
+
         <activity
             android:name=".TechnicianAddMedicalActivity" />
         <activity
