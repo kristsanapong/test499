@@ -22,7 +22,7 @@
             android:layout_height="150dp"
             android:layout_gravity="center"
             android:layout_margin="40dp"
-            tools:srcCompat="@drawable/applogo"/>
+            android:src="@mipmap/ic_applogo"/>
 
         <Button
             android:id="@+id/button1"

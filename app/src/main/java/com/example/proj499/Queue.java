@@ -44,6 +44,7 @@ public class Queue extends AppCompatActivity implements MySQLConnect.AsyncRespon
             TextView text = new TextView(this);
             text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             text.setTextSize(20);
+            text.setTextColor(000000);
             text.setText(i+". "+person1+"\n");
             sv_Queue.addView(text);
         }

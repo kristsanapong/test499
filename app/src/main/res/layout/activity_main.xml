@@ -20,7 +20,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/applogo" />
+        android:src="@mipmap/ic_applogo" />
 
     <EditText
         android:id="@+id/username"
