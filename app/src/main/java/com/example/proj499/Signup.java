@@ -49,46 +49,6 @@ public class Signup extends AppCompatActivity implements View.OnClickListener, M
         signupButt = (Button)findViewById(R.id.register_button);
         mDisplayDate = (TextView) findViewById(R.id.bdDate);
         signupButt.setOnClickListener(this);
-//        signupButt.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                switch (v.getId()) {
-//                    case R.id.register_button:
-//
-//                        try {
-//                            String firstname = txt_fistname.getText().toString();
-//                            String lastname = txt_lastname.getText().toString();
-//                            String email = txt_email.getText().toString();
-//                            int selected_sex = sex.getCheckedRadioButtonId();
-//                            r = findViewById(selected_sex);
-//                            String sex = r.getText().toString();
-//                            int selected_blood_group = blood_group.getCheckedRadioButtonId();
-//                            r = findViewById(selected_blood_group);
-//                            String blood_group = r.getText().toString();
-//                            String password = txt_pw.getText().toString();
-//
-//                            String citizen_id = txt_citizen.getText().toString();
-//                            boolean check = checkCitizen(citizen_id);
-//
-//                            if (!check){
-//                                Toast.makeText(getApplicationContext(),"เลขบัตรประจำตัวไม่ถูกต้อง",Toast.LENGTH_LONG).show();
-//
-//                            } else {
-//                                MySQLConnect mySQLConnect = new MySQLConnect(Signup.this);
-//
-//                                mySQLConnect.sentData_signup(firstname, lastname, email, citizen_id, sex, blood_group, password);
-//                                //finish();
-//                            }
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-//                            Toast.makeText(getApplicationContext(),"กรุณากรอกข้อมูลให้ครบถ้วน",Toast.LENGTH_LONG).show();
-//                        }
-//
-//                        break;
-//                }
-//            }
-//        });
         mDisplayDate.setOnClickListener(new View.OnClickListener()
         {
             @Override

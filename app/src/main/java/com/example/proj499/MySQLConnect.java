@@ -42,6 +42,8 @@ public class MySQLConnect {
     private String LOGIN = "android/login.php";
     private String QUEUE = "android/queue.php";
     private String DELETE = "android/delete_queue.php";
+    private String NEWS = "android/news.php";
+    private String ADD_MEDICAL = "android/addMedical.php";
     // 192.168.1.6
     // "http://10.0.2.2"
     public MySQLConnect(){
@@ -57,7 +59,7 @@ public class MySQLConnect {
     }
     public AsyncResponse delegate = null;
     //public List<String> getData()
-    public void getData(){
+    public void getData() {
         final String url = URL + QUEUE;
         class Get extends AsyncTask<String, Void, List<String>> {
             @Override
@@ -68,7 +70,7 @@ public class MySQLConnect {
                     HttpResponse httpResponse = httpClient.execute(httpGet);
                     HttpEntity httpEntity = httpResponse.getEntity();
                     is = httpEntity.getContent();
-                } catch (UnsupportedEncodingException e){
+                } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 } catch (ClientProtocolException e) {
                     e.printStackTrace();
@@ -90,18 +92,19 @@ public class MySQLConnect {
                 }
                 return list;
             }
+
             @Override
             protected void onPostExecute(List<String> s) {
                 super.onPostExecute(s);
                 StringBuilder result = new StringBuilder();
-                for (int i = 0; i < s.size(); i++)
-                {
+                for (int i = 0; i < s.size(); i++) {
                     result.append(s.get(i)).append("#");
                 }
                 delegate.processFinish(result.toString());
 
             }
-            public List<String> showJSON(String response){
+
+            public List<String> showJSON(String response) {
                 String comment = "";
                 List<String> list2 = new ArrayList<String>();
                 try {
@@ -116,47 +119,15 @@ public class MySQLConnect {
                         comment += "*" + collectData.getString("bloodgroup");
                         list2.add(comment);
                     }
-                }catch (JSONException ex){ex.printStackTrace();}
+                } catch (JSONException ex) {
+                    ex.printStackTrace();
+                }
                 return list2;
             }
         }
         Get get = new Get();
         get.execute();
-//        try {
-//            DefaultHttpClient httpClient = new DefaultHttpClient();
-//            HttpGet httpGet = new HttpGet(url);
-//            HttpResponse httpResponse = httpClient.execute(httpGet);
-//            HttpEntity httpEntity = httpResponse.getEntity();
-//            is = httpEntity.getContent();
-//        } catch (UnsupportedEncodingException e){
-//            e.printStackTrace();
-//        } catch (ClientProtocolException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-//        StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
-//            public void onResponse(String response) {
-//                showJSON(response);
-//                //Toast.makeText(main, list.get(0), Toast.LENGTH_LONG).show();
-//
-//            }
-//
-//        }, new Response.ErrorListener(){
-//                @Override
-//                public void onErrorResponse(VolleyError error){
-//                    Toast.makeText(main, error.getMessage().toString(), Toast.LENGTH_LONG).show();
-//            }
-//        });
-//
-//        RequestQueue requestQueue = Volley.newRequestQueue(main.getApplicationContext());
-//        requestQueue.add(stringRequest);
-//        return list;
     }
-
-
-
     public void sentData_signup(final String firstname, final String lastname, final String email,
                                 final String citizen, final String sex, final String blood_group, final String password){
         //StrictMode.enableDefaults();
@@ -186,10 +157,13 @@ public class MySQLConnect {
 
                 }catch (UnsupportedEncodingException e){
                     e.printStackTrace();
+                    return "false";
                 } catch (ClientProtocolException e) {
                     e.printStackTrace();
+                    return "false";
                 } catch (IOException e) {
                     e.printStackTrace();
+                    return "false";
                 }
                 return "Data Inserted Successfully";
             }
@@ -317,6 +291,184 @@ public class MySQLConnect {
         }
         SendPost post = new SendPost();
         post.execute(text);
+    }
+    public void GetNews() {
+        final String url = URL + NEWS;
+        class Get extends AsyncTask<String, Void, List<String>> {
+            @Override
+            protected List<String> doInBackground(String... strings) {
+                try {
+                    DefaultHttpClient httpClient = new DefaultHttpClient();
+                    HttpGet httpGet = new HttpGet(url);
+                    HttpResponse httpResponse = httpClient.execute(httpGet);
+                    HttpEntity httpEntity = httpResponse.getEntity();
+                    is = httpEntity.getContent();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                } catch (ClientProtocolException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.ISO_8859_1), 8);
+                    StringBuilder sb = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        sb.append(line);
+                    }
+                    is.close();
+                    list = showJSON(sb.toString());
+                    return list;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return list;
+            }
+
+            @Override
+            protected void onPostExecute(List<String> s) {
+                super.onPostExecute(s);
+                StringBuilder result = new StringBuilder();
+                for (int i = 0; i < s.size(); i++) {
+                    result.append(s.get(i)).append("#");
+                }
+                delegate.processFinish(result.toString());
+
+            }
+
+            public List<String> showJSON(String response) {
+                String comment = "";
+                List<String> list2 = new ArrayList<String>();
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray result = jsonObject.getJSONArray("result");
+
+                    for (int i = 0; i < result.length(); i++) {
+                        JSONObject collectData = result.getJSONObject(i);
+                        comment = collectData.getString("news_lead");
+//                        comment += "*" + collectData.getString("firstname");
+//                        comment += "*" + collectData.getString("lastname");
+//                        comment += "*" + collectData.getString("bloodgroup");
+                        list2.add(comment);
+                    }
+                } catch (JSONException ex) {
+                    ex.printStackTrace();
+                }
+                return list2;
+            }
+        }
+        Get get = new Get();
+        get.execute();
+    }
+    public void AddMedical(final String username, final String firstname, final String lastname, final String password)
+    {
+        class SendPost extends AsyncTask<String, Void, String> { //post
+            @Override
+            protected String doInBackground(String... strings) {
+                try {
+                    ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+                    nameValuePairs.add(new BasicNameValuePair("username",username));
+                    nameValuePairs.add(new BasicNameValuePair("firstname",firstname));
+                    nameValuePairs.add(new BasicNameValuePair("lastname",lastname));
+                    nameValuePairs.add(new BasicNameValuePair("password",password));
+                    HttpClient httpClient = new DefaultHttpClient();
+                    HttpPost httpPost = new HttpPost(URL + ADD_MEDICAL);
+                    httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs,"UTF-8"));
+                    httpClient.execute(httpPost);
+
+
+                }catch (UnsupportedEncodingException e){
+                    e.printStackTrace();
+                    return "false";
+                } catch (ClientProtocolException e) {
+                    e.printStackTrace();
+                    return "false";
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return "false";
+                }
+                return "Data Inserted Successfully";
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                delegate.processFinish(s);
+                //Toast.makeText(main, "Register complete",Toast.LENGTH_LONG).show();
+            }
+        }
+        SendPost post = new SendPost();
+        post.execute(username, firstname, lastname, password);
+    }
+    public void GetAccount() {
+        final String url = URL + NEWS;
+        class Get extends AsyncTask<String, Void, List<String>> {
+            @Override
+            protected List<String> doInBackground(String... strings) {
+                try {
+                    DefaultHttpClient httpClient = new DefaultHttpClient();
+                    HttpGet httpGet = new HttpGet(url);
+                    HttpResponse httpResponse = httpClient.execute(httpGet);
+                    HttpEntity httpEntity = httpResponse.getEntity();
+                    is = httpEntity.getContent();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                } catch (ClientProtocolException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.ISO_8859_1), 8);
+                    StringBuilder sb = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        sb.append(line);
+                    }
+                    is.close();
+                    list = showJSON(sb.toString());
+                    return list;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return list;
+            }
+
+            @Override
+            protected void onPostExecute(List<String> s) {
+                super.onPostExecute(s);
+                StringBuilder result = new StringBuilder();
+                for (int i = 0; i < s.size(); i++) {
+                    result.append(s.get(i)).append("#");
+                }
+                delegate.processFinish(result.toString());
+
+            }
+
+            public List<String> showJSON(String response) {
+                String comment = "";
+                List<String> list2 = new ArrayList<String>();
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray result = jsonObject.getJSONArray("result");
+
+                    for (int i = 0; i < result.length(); i++) {
+                        JSONObject collectData = result.getJSONObject(i);
+                        comment = collectData.getString("news_lead");
+//                        comment += "*" + collectData.getString("firstname");
+//                        comment += "*" + collectData.getString("lastname");
+//                        comment += "*" + collectData.getString("bloodgroup");
+                        list2.add(comment);
+                    }
+                } catch (JSONException ex) {
+                    ex.printStackTrace();
+                }
+                return list2;
+            }
+        }
+        Get get = new Get();
+        get.execute();
     }
 
 }

@@ -11,6 +11,8 @@ public class Technician_Account extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_technician__account);
+
+
     }
 
     public void AddAccount(View view)
