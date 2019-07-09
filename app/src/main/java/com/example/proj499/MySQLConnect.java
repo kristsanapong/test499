@@ -41,6 +41,7 @@ public class MySQLConnect {
     private String URL = "http://192.168.1.6:8081/", GET_URL = "android/signup.php", SENT_URL="android/sent_post.php";
     private String LOGIN = "android/login.php";
     private String QUEUE = "android/queue.php";
+    private String DELETE = "android/delete_queue.php";
     // 192.168.1.6
     // "http://10.0.2.2"
     public MySQLConnect(){
@@ -109,8 +110,8 @@ public class MySQLConnect {
 
                     for (int i = 0; i < result.length(); i++) {
                         JSONObject collectData = result.getJSONObject(i);
-//                        comment = collectData.getString("username");
-                        comment = collectData.getString("firstname");
+                        comment = collectData.getString("username");
+                        comment += "*" + collectData.getString("firstname");
                         comment += "*" + collectData.getString("lastname");
                         comment += "*" + collectData.getString("bloodgroup");
                         list2.add(comment);
@@ -167,7 +168,6 @@ public class MySQLConnect {
         class SendPost extends AsyncTask<String, Void, String> { //post
             @Override
             protected String doInBackground(String... strings) {
-
                 try {
                     ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
                     nameValuePairs.add(new BasicNameValuePair("isAdd","true"));
@@ -197,7 +197,7 @@ public class MySQLConnect {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                Toast.makeText(main, "Register complete",Toast.LENGTH_LONG).show();
+                //Toast.makeText(main, "Register complete",Toast.LENGTH_LONG).show();
             }
         }
         SendPost post = new SendPost();
@@ -210,7 +210,7 @@ public class MySQLConnect {
 
             @Override
             protected String doInBackground(String... strings) {
-
+                int error = 0;
                 try {
                     ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
                     nameValuePairs.add(new BasicNameValuePair("username",username));
@@ -223,11 +223,17 @@ public class MySQLConnect {
                     is = httpEntity.getContent();
 
                 } catch (UnsupportedEncodingException e){
+                    error = 1;
                     e.printStackTrace();
                 } catch (ClientProtocolException e) {
+                    error = 1;
                     e.printStackTrace();
                 } catch (IOException e) {
+                    error = 1;
                     e.printStackTrace();
+                }
+                if (error == 1) {
+                    return "error";
                 }
                 // read from php echo
                 try {
@@ -240,6 +246,8 @@ public class MySQLConnect {
                     is.close();
                     return sb.toString();
 
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -255,6 +263,60 @@ public class MySQLConnect {
         SendPost post = new SendPost();
         post.execute(username, password);
 
+    }
+    public void DeleteQueue(final String text) {
+
+        class SendPost extends AsyncTask<String, Void, String> {
+            @Override
+            protected String doInBackground(String... strings) {
+                try {
+                    ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+                    nameValuePairs.add(new BasicNameValuePair("q_username", text));
+                    HttpClient httpClient = new DefaultHttpClient();
+                    HttpPost httpPost = new HttpPost(URL + DELETE);
+                    httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs,"UTF-8"));
+                    HttpResponse httpResponse = httpClient.execute(httpPost);
+                    HttpEntity httpEntity = httpResponse.getEntity();
+                    is = httpEntity.getContent();
+
+                } catch (UnsupportedEncodingException e){
+                    e.printStackTrace();
+                } catch (ClientProtocolException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.ISO_8859_1), 8);
+                    StringBuilder sb = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        sb.append(line);
+                    }
+                    is.close();
+                    return sb.toString();
+
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return "false";
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                if (s.equals("delete success"))
+                {
+                    Toast.makeText(main,"delete success", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(main,"delete fail", Toast.LENGTH_LONG).show();
+                }
+                super.onPostExecute(s);
+            }
+        }
+        SendPost post = new SendPost();
+        post.execute(text);
     }
 
 }

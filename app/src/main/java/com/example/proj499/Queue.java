@@ -38,12 +38,13 @@ public class Queue extends AppCompatActivity implements MySQLConnect.AsyncRespon
         for (String person1 : person) {
             i++;
             person1 = person1.replace("*"," ");
+            String[] split = person1.split(" ");
+            final String email = split[0]; // email
+            person1 = person1.replace(email, "");
             TextView text = new TextView(this);
             text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             text.setTextSize(20);
-            text.setText(i+". "+person1);
-
-
+            text.setText(i+". "+person1+"\n");
             sv_Queue.addView(text);
         }
     }
