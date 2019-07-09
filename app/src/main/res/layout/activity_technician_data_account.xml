@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Technician_Account">
+    tools:context=".TechnicianDataAccountActivity">
 
     <TextView
+        android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="ข้อมูลผู้ใช้งาน"
-        android:textSize="25dp"
         android:textColor="#000000"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.079"
@@ -42,7 +43,7 @@
         android:text="ชื่อ"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.297"
+        app:layout_constraintHorizontal_bias="0.179"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,15 +51,12 @@
         android:id="@+id/sex"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="304dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="48dp"
         android:text="เพศ"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/user_email"
+        app:layout_constraintStart_toStartOf="@+id/user_email"
+        app:layout_constraintTop_toBottomOf="@+id/user_email" />
 
     <TextView
         android:id="@+id/lastname"
@@ -70,7 +68,7 @@
         android:text="นามสกุล"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.139"
         app:layout_constraintStart_toEndOf="@+id/firstName"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -78,44 +76,87 @@
         android:id="@+id/blood_group"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="352dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="32dp"
         android:text="กรุํปเลือด"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/sex"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/sex"
+        app:layout_constraintTop_toBottomOf="@+id/sex" />
 
     <TextView
         android:id="@+id/citizen_id"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="212dp"
+        android:layout_width="219dp"
+        android:layout_height="29dp"
 
+        android:layout_marginTop="116dp"
         android:layout_marginEnd="8dp"
         android:text="เลขบัตรประชาชน"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.744"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/textView9"
+        app:layout_constraintHorizontal_bias="0.891"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/user_email"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="260dp"
 
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="276dp"
         android:text="อีเมลล์"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.744"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/citizen_id"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/citizen_id"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginEnd="8dp"
+        android:text="เลขบัตรประชาชน"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/citizen_id"
+        app:layout_constraintEnd_toStartOf="@+id/citizen_id"
+        app:layout_constraintTop_toTopOf="@+id/citizen_id" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:text="อีเมลล์"
+        app:layout_constraintBottom_toBottomOf="@+id/user_email"
+        app:layout_constraintEnd_toStartOf="@+id/user_email"
+        app:layout_constraintTop_toTopOf="@+id/user_email"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="51dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="เพศ"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/sex"
+        app:layout_constraintEnd_toStartOf="@+id/sex"
+        app:layout_constraintTop_toTopOf="@+id/sex"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="28dp"
+        android:text="กรุํปเลือด"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/blood_group"
+        app:layout_constraintEnd_toStartOf="@+id/blood_group"
+        app:layout_constraintTop_toTopOf="@+id/blood_group"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>
