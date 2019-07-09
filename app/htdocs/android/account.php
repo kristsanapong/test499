@@ -10,7 +10,7 @@
 		$con = mysqli_connect(HOST,USER,PASS,DB) or die('Unable to connect');
 
 		mysqli_set_charset($con,"utf8");
-		$sql = "SELECT * FROM account";
+		$sql = "SELECT technician_account.firstname,technician_account.firstname FROM technician_account UNION SELECT account.firstname ,account.lastname FROM account";
 		$r = mysqli_query($con,$sql);
 		$result = array();
 
@@ -19,7 +19,6 @@
 			// $temp['username'] = $row['username'];
 			$temp['firstname'] = $row['firstname'];
 			$temp['lastname'] = $row['lastname'];
-			$temp['bloodgroup'] = $row['bloodgroup'];
 			array_push($result, $temp);
 			// array_push($result, $row);
 		}
