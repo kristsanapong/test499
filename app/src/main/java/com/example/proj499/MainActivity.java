@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         } else if (output.equals("admin success")) {
             Toast.makeText(MainActivity.this, "Admin login success",Toast.LENGTH_LONG).show();
-            intent = new Intent(this, FeaturesActivity.class);
+            intent = new Intent(this, FeaturesTechnicianActivity.class);
             startActivity(intent);
         }
         else if (output.equals("Unable to connect")){
