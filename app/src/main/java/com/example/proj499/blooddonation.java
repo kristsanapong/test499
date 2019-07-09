@@ -1,25 +1,33 @@
 package com.example.proj499;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-public class blooddonation extends AppCompatActivity {
+public class blooddonation extends AppCompatActivity implements MySQLConnect.AsyncResponse {
     private static final int RB1_ID = 1000;//first radio button id
     private static final int RB2_ID = 1001;//second radio button id
     int score = 0;
 
+    Button button = (Button)findViewById(R.id.button_bloodDonation);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blooddonation);
 
+        MySQLConnect mySQLConnect = new MySQLConnect();
+        mySQLConnect.delegate = this;
+        mySQLConnect.getData();
     }
 
 
@@ -262,14 +270,77 @@ public class blooddonation extends AppCompatActivity {
             //insert into queue
             //show alertbox ยืนยันการจองคิว
             //ใช่ ไม่
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(blooddonation.this);
+                    builder.setTitle("การบริจาค");
+                    builder.setMessage("ท่านยืนยันการจองคิวหรือไม่");
+
+                    DialogInterface.OnClickListener dialog = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+
+
+                                    break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+
+
+                                    break;
+                            }
+
+                        }
+
+                    };
+                    builder.setPositiveButton("ใช่", dialog);
+                    builder.setNegativeButton("ไม่", dialog);
+                    AlertDialog dialog1 = builder.create();
+                    dialog1.show();
+                }
+            });
 
         } else {
             //alertbox ท่านไม่สามารถบริจาคโลหิตได้
             //ok
 
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(blooddonation.this);
+                    builder.setTitle("การบริจาค");
+                    builder.setMessage("ท่านไม่สามารถบริจาคได้");
+
+                    DialogInterface.OnClickListener dialog = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+
+
+                                    break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+
+
+                                    break;
+                            }
+
+                        }
+
+                    };
+                    builder.setPositiveButton("OK", dialog);
+                    builder.show();
+                }
+            });
+
         }
     }
 
+    @Override
+    public void processFinish(String output) {
+
+    }
 }
 
 
