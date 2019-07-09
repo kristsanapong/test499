@@ -25,17 +25,6 @@
             android:src="@mipmap/ic_applogo"/>
 
         <Button
-            android:id="@+id/button1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="สำหรับเจ้าหน้าที่ / แพทย์"
-            android:onClick="ManageData"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="184dp" />
-
-
-        <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

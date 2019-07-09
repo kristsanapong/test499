@@ -26,12 +26,7 @@ public class Profile extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         logout = findViewById(R.id.button3);
     }
-    public void ManageData(View view)
-    {
-        Intent intent = new Intent(getBaseContext(), ManageDataTechnician.class);
-        startActivity(intent);
 
-    }
     public void Logout(View view)
     {
         Intent intent = new Intent(getBaseContext(), MainActivity.class);
