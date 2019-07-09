@@ -7,31 +7,36 @@
     tools:context=".Technician_Account">
 
     <TextView
+        android:id="@+id/textView15"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="รายชื่อผู้ใช้งาน"
         android:textSize="25dp"
-        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.079"
-        tools:layout_editor_absoluteX="0dp" />
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="150dp"
-    android:layout_marginBottom="120dp">
+        app:layout_constraintVertical_bias="0.020"
+        tools:layout_editor_absoluteX="-16dp" />
+
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="500dp">
+        android:layout_marginTop="15dp"
+        android:layout_height="500dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView15">
 
+        <LinearLayout
+            android:id="@+id/show_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
 
+            android:orientation="vertical">
+
+        </LinearLayout>
     </ScrollView>
-</LinearLayout>
+
 
     <Button
         android:id="@+id/Add_Account_Button"

@@ -44,6 +44,8 @@ public class MySQLConnect {
     private String DELETE = "android/delete_queue.php";
     private String NEWS = "android/news.php";
     private String ADD_MEDICAL = "android/addMedical.php";
+    private String ACCOUNT = "android/account.php";
+    private String GET_USERDATA = "android/getaccount.php";
     // 192.168.1.6
     // "http://10.0.2.2"
     public MySQLConnect(){
@@ -171,6 +173,7 @@ public class MySQLConnect {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
+                delegate.processFinish(s);
                 //Toast.makeText(main, "Register complete",Toast.LENGTH_LONG).show();
             }
         }
@@ -402,7 +405,7 @@ public class MySQLConnect {
         post.execute(username, firstname, lastname, password);
     }
     public void GetAccount() {
-        final String url = URL + NEWS;
+        final String url = URL + ACCOUNT;
         class Get extends AsyncTask<String, Void, List<String>> {
             @Override
             protected List<String> doInBackground(String... strings) {
@@ -455,8 +458,8 @@ public class MySQLConnect {
 
                     for (int i = 0; i < result.length(); i++) {
                         JSONObject collectData = result.getJSONObject(i);
-                        comment = collectData.getString("news_lead");
-//                        comment += "*" + collectData.getString("firstname");
+                        comment = collectData.getString("firstname");
+                        comment += "*" + collectData.getString("lastname");
 //                        comment += "*" + collectData.getString("lastname");
 //                        comment += "*" + collectData.getString("bloodgroup");
                         list2.add(comment);
@@ -469,6 +472,95 @@ public class MySQLConnect {
         }
         Get get = new Get();
         get.execute();
+    }
+    public void GetUserData(final String account)
+    {
+        final String url = URL + GET_USERDATA;
+        class SendPost extends AsyncTask<String, Void, List<String>> {
+            @Override
+            protected List<String> doInBackground(String... strings) {
+                try {
+                    String[] name = account.split(" ");
+                    ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+                    nameValuePairs.add(new BasicNameValuePair("firstname",name[0]));
+                    nameValuePairs.add(new BasicNameValuePair("lastname",name[1]));
+                    DefaultHttpClient httpClient = new DefaultHttpClient();
+                    HttpPost httpPost = new HttpPost(url);
+                    httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs,"UTF8"));
+                    HttpResponse httpResponse = httpClient.execute(httpPost);
+                    HttpEntity httpEntity = httpResponse.getEntity();
+                    is = httpEntity.getContent();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                } catch (ClientProtocolException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.ISO_8859_1), 8);
+                    StringBuilder sb = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        sb.append(line);
+                    }
+                    is.close();
+                    list = showJSON(sb.toString());
+                    return list;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return list;
+            }
+
+            @Override
+            protected void onPostExecute(List<String> s) {
+                super.onPostExecute(s);
+                StringBuilder result = new StringBuilder();
+                for (int i = 0; i < s.size(); i++) {
+                    result.append(s.get(i)).append("#");
+                }
+                delegate.processFinish(result.toString());
+
+            }
+
+            public List<String> showJSON(String response) {
+                String comment = "";
+                List<String> list2 = new ArrayList<String>();
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray result;
+                    if (jsonObject.has("result")) {
+                        result = jsonObject.getJSONArray("result");
+                        for (int i = 0; i < result.length(); i++) {
+                            JSONObject collectData = result.getJSONObject(i);
+                            comment = collectData.getString("firstname");
+                            comment += "*" + collectData.getString("lastname");
+                            comment += "*" + collectData.getString("citizen_id");
+                            comment += "*" + collectData.getString("username");
+                            comment += "*" + collectData.getString("sex");
+                            comment += "*" + collectData.getString("bloodgroup");
+                            list2.add(comment);
+                        }
+                    } else if (jsonObject.has("result2")) {
+                        result = jsonObject.getJSONArray("result2");
+                        for (int i = 0; i < result.length(); i++) {
+                            JSONObject collectData = result.getJSONObject(i);
+                            comment = collectData.getString("firstname");
+                            comment += "*" + collectData.getString("lastname");
+                            list2.add(comment);
+                        }
+                    }
+
+
+                } catch (JSONException ex) {
+                    ex.printStackTrace();
+                }
+                return list2;
+            }
+        }
+        SendPost post = new SendPost();
+        post.execute(account);
     }
 
 }
