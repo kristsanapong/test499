@@ -52,6 +52,7 @@ public class Technician_Account extends AppCompatActivity implements MySQLConnec
                     Intent intent = new Intent(getBaseContext(), TechnicianDataAccountActivity.class);
                     intent.putExtra("account", account_check);
                     startActivity(intent);
+                    finish();
                 }
             });
             sv_Account.addView(text);

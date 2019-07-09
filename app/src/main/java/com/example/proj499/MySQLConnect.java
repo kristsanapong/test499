@@ -46,6 +46,7 @@ public class MySQLConnect {
     private String ADD_MEDICAL = "android/addMedical.php";
     private String ACCOUNT = "android/account.php";
     private String GET_USERDATA = "android/getaccount.php";
+    private String DELETE_ACCOUNT = "android/deleteAccount.php";
     // 192.168.1.6
     // "http://10.0.2.2"
     public MySQLConnect(){
@@ -561,6 +562,62 @@ public class MySQLConnect {
         }
         SendPost post = new SendPost();
         post.execute(account);
+    }
+    public void DeleteAccount(final String account)
+    {
+        final String[] name = account.split(" ");
+        class SendPost extends AsyncTask<String, Void, String> {
+            @Override
+            protected String doInBackground(String... strings) {
+                try {
+                    ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+                    nameValuePairs.add(new BasicNameValuePair("firstname", name[0]));
+                    nameValuePairs.add(new BasicNameValuePair("lastname", name[1]));
+                    HttpClient httpClient = new DefaultHttpClient();
+                    HttpPost httpPost = new HttpPost(URL + DELETE_ACCOUNT);
+                    httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs,"UTF-8"));
+                    HttpResponse httpResponse = httpClient.execute(httpPost);
+                    HttpEntity httpEntity = httpResponse.getEntity();
+                    is = httpEntity.getContent();
+
+                } catch (UnsupportedEncodingException e){
+                    e.printStackTrace();
+                } catch (ClientProtocolException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.ISO_8859_1), 8);
+                    StringBuilder sb = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        sb.append(line);
+                    }
+                    is.close();
+                    return sb.toString();
+
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return "false";
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                if (s.equals("delete success"))
+                {
+                    Toast.makeText(main,"delete account success", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(main,"delete account fail", Toast.LENGTH_LONG).show();
+                }
+                super.onPostExecute(s);
+            }
+        }
+        SendPost post = new SendPost();
+        post.execute(name[0], name[1]);
     }
 
 }
