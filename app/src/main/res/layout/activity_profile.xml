@@ -40,8 +40,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:text="ออกจากระบบ"
+            android:text="About"
+            android:onClick="About"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="184dp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
             android:onClick="Logout"
+            android:text="ออกจากระบบ"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="184dp" />
     </LinearLayout>

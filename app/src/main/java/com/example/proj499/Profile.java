@@ -38,4 +38,9 @@ public class Profile extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
+
+    public void About(View view){
+        Intent intent = new Intent(getBaseContext(), About.class);
+        startActivity(intent);
+    }
 }

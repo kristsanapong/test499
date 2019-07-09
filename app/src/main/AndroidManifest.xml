@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
+        <activity android:name=".About"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -29,10 +29,13 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-        <activity android:name=".TechnicianAddNewsActivity"
-            android:label="เพิ่มประชาสัมพันธ์"/>
-        <activity android:name=".TechnicianActivity"
-            android:label="สำหรับเจ้าหน้าที่"/>
+
+        <activity
+            android:name=".TechnicianAddNewsActivity"
+            android:label="เพิ่มประชาสัมพันธ์" />
+        <activity
+            android:name=".TechnicianActivity"
+            android:label="สำหรับเจ้าหน้าที่" />
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
@@ -54,31 +57,39 @@
         <activity
             android:name=".blooddonation"
             android:label="Blood Donation" />
-        <activity android:name=".Signup"
-            android:label="สมัครสมาชิก"/>
+        <activity
+            android:name=".Signup"
+            android:label="สมัครสมาชิก" />
         <activity
             android:name=".Profile"
             android:label="โปรไฟล์" />
-        <activity android:name=".ManageDataTechnician"
-            android:label="สำหรับแพทย์ พยาบาลและเจ้าหน้าที่"/>
-
-        <activity android:name=".EditBloodData"
-            android:label="แก้ไขข้อมูลผู้บริจาคโลหิต"/>
-        <activity android:name=".MedicalActivity"
-            android:label="สำหรับแพทย์และพยาบาล"/>
+        <activity
+            android:name=".ManageDataTechnician"
+            android:label="สำหรับแพทย์ พยาบาลและเจ้าหน้าที่" />
+        <activity
+            android:name=".EditBloodData"
+            android:label="แก้ไขข้อมูลผู้บริจาคโลหิต" />
+        <activity
+            android:name=".MedicalActivity"
+            android:label="สำหรับแพทย์และพยาบาล" />
         <activity
             android:name=".News"
             android:label="ประชาสัมพันธ์" />
-        <activity android:name=".Technician_Account"
-            android:label="สำหรับจัดการผู้ใช้งาน"/>
-        <activity android:name=".Technician_News"
-            android:label="สำหรับจัดการประชาสัมพันธ์"/>
-        <activity android:name=".TechnicianAddMedicalActivity"
-            android:label="เพิ่มข้อมูล แพทย์ พยาบาล และเจ้าหน้าที่"/>
-        <activity android:name=".TechnicianDataAccountActivity"
-            android:label="เพิ่มข้อมูลผู้ใช้งาน"/>
-        <activity android:name=".UserProfile"
-            android:label="โปรไฟล์"/>
+        <activity
+            android:name=".Technician_Account"
+            android:label="สำหรับจัดการผู้ใช้งาน" />
+        <activity
+            android:name=".Technician_News"
+            android:label="สำหรับจัดการประชาสัมพันธ์" />
+        <activity
+            android:name=".TechnicianAddMedicalActivity"
+            android:label="เพิ่มข้อมูล แพทย์ พยาบาล และเจ้าหน้าที่" />
+        <activity
+            android:name=".TechnicianDataAccountActivity"
+            android:label="เพิ่มข้อมูลผู้ใช้งาน" />
+        <activity
+            android:name=".UserProfile"
+            android:label="โปรไฟล์" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
