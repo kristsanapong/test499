@@ -1,6 +1,7 @@
 package com.example.proj499;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -45,6 +46,7 @@ public class Technician_Account extends AppCompatActivity implements MySQLConnec
             TextView text = new TextView(this);
             text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             text.setTextSize(20);
+            text.setTextColor(Color.BLACK);
             text.setText(i+". "+account1+"\n");
             text.setOnClickListener(new View.OnClickListener() {
                 @Override
