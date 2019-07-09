@@ -13,56 +13,7 @@ public class blooddonation extends AppCompatActivity {
     private static final int RB1_ID = 1000;//first radio button id
     private static final int RB2_ID = 1001;//second radio button id
     int score = 0;
-    RadioGroup G_q1 = (RadioGroup) findViewById(R.id.q1);
-    RadioGroup G_q2 = (RadioGroup) findViewById(R.id.q2);
-    RadioGroup G_q3 = (RadioGroup) findViewById(R.id.q3);
-    RadioGroup G_q4 = (RadioGroup) findViewById(R.id.q4);
-    RadioGroup G_q5 = (RadioGroup) findViewById(R.id.q5);
-    RadioGroup G_q6 = (RadioGroup) findViewById(R.id.q6);
-    RadioGroup G_q7 = (RadioGroup) findViewById(R.id.q7);
-    RadioGroup G_q8 = (RadioGroup) findViewById(R.id.q8);
-    RadioGroup G_q9 = (RadioGroup) findViewById(R.id.q9);
-    RadioGroup G_q10 = (RadioGroup) findViewById(R.id.q10);
-    RadioGroup G_q11 = (RadioGroup) findViewById(R.id.q11);
-    RadioGroup G_q12 = (RadioGroup) findViewById(R.id.q12);
-    RadioGroup G_q13 = (RadioGroup) findViewById(R.id.q13);
-    RadioGroup G_q14 = (RadioGroup) findViewById(R.id.q14);
-    RadioGroup G_q15 = (RadioGroup) findViewById(R.id.q15);
-    RadioGroup G_q16 = (RadioGroup) findViewById(R.id.q16);
-    RadioGroup G_q17 = (RadioGroup) findViewById(R.id.q17);
-    RadioGroup G_q18 = (RadioGroup) findViewById(R.id.q18);
-    RadioGroup G_q19 = (RadioGroup) findViewById(R.id.q19);
-    RadioGroup G_q20 = (RadioGroup) findViewById(R.id.q20);
-    RadioGroup G_q21 = (RadioGroup) findViewById(R.id.q21);
-    RadioGroup G_q22 = (RadioGroup) findViewById(R.id.q22);
-    RadioGroup G_q23 = (RadioGroup) findViewById(R.id.q23);
-    RadioGroup G_q24 = (RadioGroup) findViewById(R.id.q24);
-    RadioGroup G_q25 = (RadioGroup) findViewById(R.id.q25);
-    int btn1 = G_q1.getCheckedRadioButtonId();
-    int btn2 = G_q2.getCheckedRadioButtonId();
-    int btn3 = G_q3.getCheckedRadioButtonId();
-    int btn4 = G_q4.getCheckedRadioButtonId();
-    int btn5 = G_q5.getCheckedRadioButtonId();
-    int btn6 = G_q6.getCheckedRadioButtonId();
-    int btn7 = G_q7.getCheckedRadioButtonId();
-    int btn8 = G_q8.getCheckedRadioButtonId();
-    int btn9 = G_q9.getCheckedRadioButtonId();
-    int btn10 = G_q10.getCheckedRadioButtonId();
-    int btn11 = G_q11.getCheckedRadioButtonId();
-    int btn12 = G_q12.getCheckedRadioButtonId();
-    int btn13 = G_q13.getCheckedRadioButtonId();
-    int btn14 = G_q14.getCheckedRadioButtonId();
-    int btn15 = G_q15.getCheckedRadioButtonId();
-    int btn16 = G_q16.getCheckedRadioButtonId();
-    int btn17 = G_q17.getCheckedRadioButtonId();
-    int btn18 = G_q18.getCheckedRadioButtonId();
-    int btn19 = G_q19.getCheckedRadioButtonId();
-    int btn20 = G_q20.getCheckedRadioButtonId();
-    int btn21 = G_q21.getCheckedRadioButtonId();
-    int btn22 = G_q22.getCheckedRadioButtonId();
-    int btn23 = G_q23.getCheckedRadioButtonId();
-    int btn24 = G_q24.getCheckedRadioButtonId();
-    int btn25 = G_q25.getCheckedRadioButtonId();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +24,57 @@ public class blooddonation extends AppCompatActivity {
 
 
     public void checkQuiz() {
+
+        RadioGroup G_q1 = findViewById(R.id.q1);
+        RadioGroup G_q2 = findViewById(R.id.q2);
+        RadioGroup G_q3 = findViewById(R.id.q3);
+        RadioGroup G_q4 = findViewById(R.id.q4);
+        RadioGroup G_q5 = findViewById(R.id.q5);
+        RadioGroup G_q6 = findViewById(R.id.q6);
+        RadioGroup G_q7 = findViewById(R.id.q7);
+        RadioGroup G_q8 = findViewById(R.id.q8);
+        RadioGroup G_q9 = findViewById(R.id.q9);
+        RadioGroup G_q10 = findViewById(R.id.q10);
+        RadioGroup G_q11 = findViewById(R.id.q11);
+        RadioGroup G_q12 = findViewById(R.id.q12);
+        RadioGroup G_q13 = findViewById(R.id.q13);
+        RadioGroup G_q14 = findViewById(R.id.q14);
+        RadioGroup G_q15 = findViewById(R.id.q15);
+        RadioGroup G_q16 = findViewById(R.id.q16);
+        RadioGroup G_q17 = findViewById(R.id.q17);
+        RadioGroup G_q18 = findViewById(R.id.q18);
+        RadioGroup G_q19 = findViewById(R.id.q19);
+        RadioGroup G_q20 = findViewById(R.id.q20);
+        RadioGroup G_q21 = findViewById(R.id.q21);
+        RadioGroup G_q22 = findViewById(R.id.q22);
+        RadioGroup G_q23 = findViewById(R.id.q23);
+        RadioGroup G_q24 = findViewById(R.id.q24);
+        RadioGroup G_q25 = findViewById(R.id.q25);
+        int btn1 = G_q1.getCheckedRadioButtonId();
+        int btn2 = G_q2.getCheckedRadioButtonId();
+        int btn3 = G_q3.getCheckedRadioButtonId();
+        int btn4 = G_q4.getCheckedRadioButtonId();
+        int btn5 = G_q5.getCheckedRadioButtonId();
+        int btn6 = G_q6.getCheckedRadioButtonId();
+        int btn7 = G_q7.getCheckedRadioButtonId();
+        int btn8 = G_q8.getCheckedRadioButtonId();
+        int btn9 = G_q9.getCheckedRadioButtonId();
+        int btn10 = G_q10.getCheckedRadioButtonId();
+        int btn11 = G_q11.getCheckedRadioButtonId();
+        int btn12 = G_q12.getCheckedRadioButtonId();
+        int btn13 = G_q13.getCheckedRadioButtonId();
+        int btn14 = G_q14.getCheckedRadioButtonId();
+        int btn15 = G_q15.getCheckedRadioButtonId();
+        int btn16 = G_q16.getCheckedRadioButtonId();
+        int btn17 = G_q17.getCheckedRadioButtonId();
+        int btn18 = G_q18.getCheckedRadioButtonId();
+        int btn19 = G_q19.getCheckedRadioButtonId();
+        int btn20 = G_q20.getCheckedRadioButtonId();
+        int btn21 = G_q21.getCheckedRadioButtonId();
+        int btn22 = G_q22.getCheckedRadioButtonId();
+        int btn23 = G_q23.getCheckedRadioButtonId();
+        int btn24 = G_q24.getCheckedRadioButtonId();
+        int btn25 = G_q25.getCheckedRadioButtonId();
         switch (btn1) {
             case RB2_ID:
                 score++;

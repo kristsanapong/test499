@@ -38,7 +38,7 @@ public class MySQLConnect {
     private final Activity main;
     static InputStream is = null;
     private List<String> list;
-    private String URL = "http://192.168.1.5:8081/", GET_URL = "android/signup.php", SENT_URL="android/sent_post.php";
+    private String URL = "http://192.168.1.6:8081/", GET_URL = "android/signup.php", SENT_URL="android/sent_post.php";
     private String LOGIN = "android/login.php";
     private String QUEUE = "android/queue.php";
     // 192.168.1.6

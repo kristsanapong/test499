@@ -29,8 +29,10 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-        <activity android:name=".TechnicianAddNewsActivity"></activity>
-        <activity android:name=".TechnicianActivity" />
+        <activity android:name=".TechnicianAddNewsActivity"
+            android:label="เพิ่มประชาสัมพันธ์"/>
+        <activity android:name=".TechnicianActivity"
+            android:label="สำหรับเจ้าหน้าที่"/>
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
@@ -39,34 +41,44 @@
             android:label="เพิ่มข้อมูลผู้ใช้งาน" />
         <activity
             android:name=".History"
-            android:label="@string/title_activity_history" />
+            android:label="ประวัติการบริจาค" />
         <activity
             android:name=".bloodinformation"
             android:label="@string/title_activity_bloodinformation" />
         <activity
             android:name=".FeaturesActivity"
-            android:label="FeaturesActivity" />
+            android:label="Blood Bank" />
         <activity
             android:name=".Queue"
-            android:label="Queue" />
+            android:label="คิวการบริจาค" />
         <activity
             android:name=".blooddonation"
             android:label="Blood Donation" />
-        <activity android:name=".Signup" />
+        <activity android:name=".Signup"
+            android:label="สมัครสมาชิก"/>
         <activity
             android:name=".Profile"
-            android:label="@string/title_activity_profile" />
-        <activity android:name=".ManageDataTechnician" />
-        <activity android:name=".EditBloodData" />
-        <activity android:name=".MedicalActivity" />
+            android:label="โปรไฟล์" />
+        <activity android:name=".ManageDataTechnician"
+            android:label="สำหรับแพทย์ พยาบาลและเจ้าหน้าที่"/>
+
+        <activity android:name=".EditBloodData"
+            android:label="แก้ไขข้อมูลผู้บริจาคโลหิต"/>
+        <activity android:name=".MedicalActivity"
+            android:label="สำหรับแพทย์และพยาบาล"/>
         <activity
             android:name=".News"
-            android:label="@string/title_activity_news" />
-        <activity android:name=".Technician_Account" />
-        <activity android:name=".Technician_News" />
-        <activity android:name=".TechnicianAddMedicalActivity" />
-        <activity android:name=".TechnicianDataAccountActivity" />
-        <activity android:name=".UserProfile" />
+            android:label="ประชาสัมพันธ์" />
+        <activity android:name=".Technician_Account"
+            android:label="สำหรับจัดการผู้ใช้งาน"/>
+        <activity android:name=".Technician_News"
+            android:label="สำหรับจัดการประชาสัมพันธ์"/>
+        <activity android:name=".TechnicianAddMedicalActivity"
+            android:label="เพิ่มข้อมูล แพทย์ พยาบาล และเจ้าหน้าที่"/>
+        <activity android:name=".TechnicianDataAccountActivity"
+            android:label="เพิ่มข้อมูลผู้ใช้งาน"/>
+        <activity android:name=".UserProfile"
+            android:label="โปรไฟล์"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
