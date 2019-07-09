@@ -1,5 +1,6 @@
 package com.example.proj499;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
@@ -44,7 +45,7 @@ public class Queue extends AppCompatActivity implements MySQLConnect.AsyncRespon
             TextView text = new TextView(this);
             text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             text.setTextSize(20);
-            text.setTextColor(000000);
+            text.setTextColor(Color.BLACK);
             text.setText(i+". "+person1+"\n");
             sv_Queue.addView(text);
         }
