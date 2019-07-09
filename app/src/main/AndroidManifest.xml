@@ -17,8 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".FeaturesTechnicianActivity"></activity>
-        <activity android:name=".About" />
+        <activity android:name=".FeaturesTechnicianActivity"
+            android:label="สำหรับเจ้าหน้าที่ แพทย์และพยาบาล"/>
+        <activity android:name=".About"
+            android:label="About"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
