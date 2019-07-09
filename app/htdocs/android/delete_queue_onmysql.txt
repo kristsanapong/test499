@@ -1,0 +1,6 @@
+CREATE EVENT IF NOT EXISTS delete_queue
+ON SCHEDULE
+  EVERY 17 DAY_HOUR
+  COMMENT 'Clean up queue at 17:00 daily!'
+  DO
+    DELETE FROM queue
