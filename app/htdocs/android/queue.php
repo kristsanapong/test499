@@ -10,7 +10,7 @@
 		$con = mysqli_connect(HOST,USER,PASS,DB) or die('Unable to connect');
 
 		mysqli_set_charset($con,"utf8");
-		$sql = "SELECT account.username, account.firstname, account.lastname, account.bloodgroup FROM queue INNER JOIN account ON queue.q_username = account.username";
+		$sql = "SELECT account.username, account.firstname, account.lastname, account.bloodgroup FROM queue INNER JOIN account ON queue.q_username = account.username ORDER BY q_dateTime ASC";
 		$r = mysqli_query($con,$sql);
 		$result = array();
 
