@@ -7,12 +7,27 @@
     tools:context=".Technician_News">
 
     <TextView
+        android:id="@+id/textView16"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        android:text="เจ้าหน้าที่สามารถกดที่รายชื่อข่าวและประชาสัมพันธ์เพื่อลบข้อมูลข่าวและประชาสัมพันธ์ได้"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textView15"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+    <TextView
+        android:id="@+id/textView15"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="รายชื่อประชาสัมพันธ์"
+        android:textStyle="bold"
         android:textSize="25dp"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,14 +43,15 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="500dp"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="15dp">
+
             <LinearLayout
                 android:id="@+id/llTechnician_News"
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
             </LinearLayout>
 
