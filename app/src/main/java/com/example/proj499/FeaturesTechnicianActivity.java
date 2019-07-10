@@ -33,6 +33,12 @@ public class FeaturesTechnicianActivity extends AppCompatActivity {
     public void Profile(View view)
     {
         Intent intent = new Intent(getBaseContext(), Profile.class);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null)
+        {
+            intent.putExtra("admin", extras.getString("admin"));
+        }
+
         startActivity(intent);
 
     }

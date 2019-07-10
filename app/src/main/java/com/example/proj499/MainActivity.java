@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent = new Intent(this, FeaturesTechnicianActivity.class);
             intent.putExtra("username", uname);
             intent.putExtra("data", output);
+            intent.putExtra("admin", "admin");
             startActivity(intent);
         }
         else if (output.contains("Unable to connect")){
