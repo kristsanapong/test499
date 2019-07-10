@@ -48,7 +48,7 @@ public class MedicalActivity extends AppCompatActivity implements MySQLConnect.A
                 public void onClick(View v) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(MedicalActivity.this);
                     builder.setTitle("การบริจาค");
-                    builder.setMessage("คุณจะทำอะไรกับคนนี้");
+                    builder.setMessage("แสดงความคิดเห็นเกี่ยวกับผู้บริจาคโลหิต");
                     final EditText input_detail = new EditText(getBaseContext());
                     input_detail.setInputType(InputType.TYPE_CLASS_TEXT);
                     builder.setView(input_detail);
