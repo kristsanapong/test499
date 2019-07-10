@@ -940,6 +940,8 @@ public class MySQLConnect {
                         for (int i = 0; i < result.length(); i++) {
                             JSONObject collectData = result.getJSONObject(i);
                             comment = collectData.getString("detail");
+                            comment += "*" + collectData.getString("firstname");
+                            comment += "*" + collectData.getString("lastname");
                             list2.add(comment);
                         }
                     }

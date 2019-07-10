@@ -53,13 +53,19 @@ public class Profile extends AppCompatActivity implements MySQLConnect.AsyncResp
     @Override
     public void processFinish(String output) {
         String[] detail = output.split("#");
+        String firstname = "", lastname = "";
         StringBuilder All_details = new StringBuilder();
         TextView textView = findViewById(R.id.profile_history);
+
         int count = detail.length;
-//        for (String detail1 : detail)
-//        {
-//            All_details.append(detail1).append("\n");
-//        }
-        textView.setText("ท่านได้บริจาคโลหิตมาแล้ว  "+count+" ครั้ง");
+        for (String detail1 : detail)
+        {
+            detail1 = detail1.replace("*", " ");
+            String[] name = detail1.split(" ");
+            firstname = name[1];
+            lastname = name[2];
+            All_details.append(detail1).append("\n");
+        }
+        textView.setText(firstname+" "+lastname+"\n"+"ท่านได้บริจาคโลหิตมาแล้ว  "+count+" ครั้ง");
     }
 }
