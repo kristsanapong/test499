@@ -260,6 +260,9 @@ public class MySQLConnect {
                     if (response.contains("user success"))
                     {
                         comment += "*" + "user success";
+                    } else if (response.contains("admin success"))
+                    {
+                        comment = "admin success";
                     }
                 } catch (JSONException ex) {
                     ex.printStackTrace();
