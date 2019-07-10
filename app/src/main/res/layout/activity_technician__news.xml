@@ -27,7 +27,10 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="500dp">
+            android:layout_height="500dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
             <LinearLayout
                 android:id="@+id/llTechnician_News"
                 android:orientation="vertical"

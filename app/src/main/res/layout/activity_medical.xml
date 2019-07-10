@@ -30,7 +30,10 @@
         <ScrollView
             android:id="@+id/svQueue"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
 
             <LinearLayout
                 android:id="@+id/llQueue"
@@ -50,9 +53,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="10dp"
+        android:gravity="center"
         android:text="แพทย์และพยาบาลสามารถเพิ่มความเห็นและให้ผ่านได้โดยการคลิกที่ชื่อของผู้บริจาค"
+        android:textColor="@color/colorPrimary"
         android:textSize="15dp"
-        android:textColor="#000000"
+        android:textStyle="bold"
+
         app:layout_constraintEnd_toEndOf="@+id/textView17"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/textView17"

@@ -2,6 +2,7 @@ package com.example.proj499;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -35,7 +36,8 @@ public class News extends AppCompatActivity implements MySQLConnect.AsyncRespons
             text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             text.setTextSize(20);
             text.setTextColor(Color.BLACK);
-            text.setText(i+". "+news1+"\n");
+            text.setTypeface(null, Typeface.BOLD);
+            text.setText(news1+"\n");
             sv_News.addView(text);
         }
     }
