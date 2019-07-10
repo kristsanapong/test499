@@ -8,30 +8,53 @@
 
     <Button
         android:id="@+id/Medical_Button"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+
         android:onClick="ManageMedical"
         android:text="สำหรับแพทย์ / พยาบาล"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView9"
+        app:layout_constraintStart_toStartOf="@+id/imageView9"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
     <Button
         android:id="@+id/Technician_Button"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="8dp"
-        android:onClick="ManageAdmin"
+        android:layout_marginTop="8dp"
         android:text="สำหรับเจ้าหน้าที่"
+        android:onClick="ManageMedical"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:tint="@color/colorPrimary"
+        android:onClick="ManageMedical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_medical_records" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:onClick="ManageAdmin"
+        android:tint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/Medical_Button"
         app:layout_constraintStart_toStartOf="@+id/Medical_Button"
-        app:layout_constraintTop_toBottomOf="@+id/Medical_Button" />
+        app:layout_constraintTop_toBottomOf="@+id/Medical_Button"
+        app:srcCompat="@drawable/ic_icon_technician" />
 </android.support.constraint.ConstraintLayout>
 
 
