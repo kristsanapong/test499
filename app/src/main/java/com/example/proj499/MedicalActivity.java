@@ -1,11 +1,14 @@
 package com.example.proj499;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -29,7 +32,8 @@ public class MedicalActivity extends AppCompatActivity implements MySQLConnect.A
         for (String person1 : person) {
             i++;
             person1 = person1.replace("*"," ");
-            String[] split = person1.split(" ");
+            final String data = person1;
+            final String[] split = person1.split(" ");
             final String email = split[0]; // email
             person1 = person1.replace(email, "");
             final TextView text = new TextView(this);
@@ -43,13 +47,20 @@ public class MedicalActivity extends AppCompatActivity implements MySQLConnect.A
                     AlertDialog.Builder builder = new AlertDialog.Builder(MedicalActivity.this);
                     builder.setTitle("การบริจาค");
                     builder.setMessage("คุณจะทำอะไรกับคนนี้");
+                    final EditText input_detail = new EditText(getBaseContext());
+                    input_detail.setInputType(InputType.TYPE_CLASS_TEXT);
+                    builder.setView(input_detail);
                     DialogInterface.OnClickListener dialog = new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             switch (which) {
                                 case DialogInterface.BUTTON_POSITIVE:
                                     //ผ่าน ใส่ history
+                                    Intent intent = new Intent(getBaseContext(), History.class);
+                                    intent.putExtra("history", data);
 
+                                    intent.putExtra("detail", input_detail.getText().toString());
+                                    startActivity(intent);
                                     break;
                                 case DialogInterface.BUTTON_NEGATIVE:
                                     //ไม่ผ่าน ลบ
