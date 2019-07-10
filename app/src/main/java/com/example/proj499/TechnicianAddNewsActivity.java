@@ -24,6 +24,7 @@ public class TechnicianAddNewsActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        finish();
 
     }
 }

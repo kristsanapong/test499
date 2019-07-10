@@ -8,13 +8,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class Profile extends AppCompatActivity {
+public class Profile extends AppCompatActivity implements MySQLConnect.AsyncResponse{
 
     private TextView mTextMessage, history;
     private Button logout;
-
+    String username;
 
 
     @Override
@@ -25,7 +26,14 @@ public class Profile extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         logout = findViewById(R.id.button3);
-
+        Bundle extras = getIntent().getExtras();
+        if (extras != null)
+        {
+            username = extras.getString("username");
+        }
+        MySQLConnect mySQLConnect = new MySQLConnect();
+        mySQLConnect.delegate = this;
+        mySQLConnect.GetHistory(username);
 
         //history data from history
     }
@@ -40,5 +48,18 @@ public class Profile extends AppCompatActivity {
     public void About(View view){
         Intent intent = new Intent(getBaseContext(), About.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void processFinish(String output) {
+        String[] detail = output.split("#");
+        StringBuilder All_details = new StringBuilder();
+        TextView textView = findViewById(R.id.profile_history);
+        int count = detail.length;
+//        for (String detail1 : detail)
+//        {
+//            All_details.append(detail1).append("\n");
+//        }
+        textView.setText("ท่านได้บริจาคโลหิตมาแล้ว  "+count+" ครั้ง");
     }
 }

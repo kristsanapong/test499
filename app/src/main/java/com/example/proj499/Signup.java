@@ -118,7 +118,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener, M
     }
     @Override
     public void onClick(View v) {
-
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         switch (v.getId()) {
             case R.id.register_button:
 
@@ -126,6 +126,11 @@ public class Signup extends AppCompatActivity implements View.OnClickListener, M
                     String firstname = txt_fistname.getText().toString();
                     String lastname = txt_lastname.getText().toString();
                     String email = txt_email.getText().toString();
+                    if (!email.matches(emailPattern))
+                    {
+                        Toast.makeText(getApplicationContext(),"กรุณากรอกอีเมลให้ถูกต้อง",Toast.LENGTH_LONG).show();
+                        return;
+                    }
                     int selected_sex = sex.getCheckedRadioButtonId();
                     r = findViewById(selected_sex);
                     String sex = r.getText().toString();
