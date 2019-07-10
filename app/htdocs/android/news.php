@@ -10,7 +10,7 @@
 		$con = mysqli_connect(HOST,USER,PASS,DB) or die('Unable to connect');
 
 		mysqli_set_charset($con,"utf8");
-		$sql = "SELECT news.news_lead FROM `news`";
+		$sql = "SELECT news.news_lead FROM `news` ORDER BY news_date DESC";
 		$r = mysqli_query($con,$sql);
 		$result = array();
 

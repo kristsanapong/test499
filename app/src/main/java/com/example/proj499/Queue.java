@@ -17,18 +17,9 @@ public class Queue extends AppCompatActivity implements MySQLConnect.AsyncRespon
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_queue);
 
-        //LinearLayout sv_Queue = (LinearLayout) findViewById(R.id.llQueue);
         MySQLConnect mySQLConnect = new MySQLConnect();
         mySQLConnect.delegate = this;
         mySQLConnect.getData();
-//        for (i=0;i<count;i++){
-//            TextView text = new TextView(this);
-//            text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-//            text.setText(""+i);
-//
-//
-//            sv_Queue.addView(text);
-//        }
     }
 
     @Override

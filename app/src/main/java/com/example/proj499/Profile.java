@@ -25,6 +25,9 @@ public class Profile extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         logout = findViewById(R.id.button3);
+
+
+        //history data from history
     }
 
     public void Logout(View view)

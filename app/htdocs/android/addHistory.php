@@ -7,21 +7,24 @@
 	// $con = mysqli_connect(HOST,USER,PASS,DB) or die('Unable to connect');
 	include 'db_connect.php';
 
+
 	if (isset($_POST)) {
 		
 
 		$username = $_POST['username'];
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
-		$citizen_id = $_POST['citizen_id'];
-		$sex = $_POST['sex'];
-		$bloodgroup = $_POST['bloodgroup'];
-		$password = $_POST['password'];
+		$detail = $_POST['detail'];
+		// $username = 'alee1@gmail.com';
+		// $firstname = 'm';
+		// $lastname = 'm';
+		// $detail = 'm';
+		
 			
 		// mysqli_set_charset($con,"utf8");
-		$sql = "INSERT INTO account (username, password, firstname, lastname, citizen_id, sex, bloodgroup) VALUES ('$username', '$password', '$firstname', '$lastname', '$citizen_id', '$sex', '$bloodgroup')";
+		$sql = "INSERT INTO history (username, firstname, lastname, detail) VALUES ('$username', '$firstname', '$lastname', '$detail')";
 		if(mysqli_query($con,$sql)){
-			echo 'success';
+			echo 'history success';
 		}else{
 			echo 'fail';
 		}
