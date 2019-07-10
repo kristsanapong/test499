@@ -43,6 +43,10 @@
             android:text="ออกจากระบบ"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="184dp" />
+        <TextView
+            android:id="@+id/show_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <LinearLayout

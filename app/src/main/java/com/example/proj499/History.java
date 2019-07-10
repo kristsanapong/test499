@@ -7,6 +7,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class History extends AppCompatActivity implements MySQLConnect.AsyncResponse{
 
@@ -22,10 +23,10 @@ public class History extends AppCompatActivity implements MySQLConnect.AsyncResp
         if (extras != null) {
             Data = extras.getString("history"); //Data
             detail = extras.getString("detail");
-            if (detail != null)
-            {
-                detail = "detail: " + detail;
-            }
+//            if (detail != null)
+//            {
+//                detail = "detail: " + detail;
+//            }
             MySQLConnect mySQLConnect = new MySQLConnect();
             mySQLConnect.delegate = this;
             mySQLConnect.AddHistory(Data + " " + detail);
@@ -34,6 +35,11 @@ public class History extends AppCompatActivity implements MySQLConnect.AsyncResp
 
     @Override
     public void processFinish(String output) {
-
+        if (output.equals("history success"))
+        {
+            Toast.makeText(this,"Add history success", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this,"Add history fail", Toast.LENGTH_LONG).show();
+        }
     }
 }

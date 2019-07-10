@@ -48,6 +48,7 @@ public class MySQLConnect {
     private String GET_USERDATA = "android/getaccount.php";
     private String DELETE_ACCOUNT = "android/deleteAccount.php";
     private String ADD_HISTORY = "android/addHistory.php";
+    private String ADD_QUEUE = "android/addQueue.php";
     // 192.168.1.6
     // "http://10.0.2.2"
     public MySQLConnect(){
@@ -222,8 +223,9 @@ public class MySQLConnect {
                     while ((line = reader.readLine()) != null) {
                         sb.append(line);
                     }
+                    String word = showJSON(sb.toString());
                     is.close();
-                    return sb.toString();
+                    return word;
 
                 } catch (NullPointerException e) {
                     e.printStackTrace();
@@ -236,7 +238,33 @@ public class MySQLConnect {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
+
+
                 delegate.processFinish(s); //return value from php echo
+            }
+            public String showJSON(String response) {
+                String comment = "";
+
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray result = jsonObject.getJSONArray("result");
+
+                    for (int i = 0; i < result.length(); i++) {
+                        JSONObject collectData = result.getJSONObject(i);
+                        comment = collectData.getString("username");
+                        comment += "*" + collectData.getString("bloodgroup");
+//                        comment += "*" + collectData.getString("lastname");
+//                        comment += "*" + collectData.getString("bloodgroup");
+
+                    }
+                    if (response.contains("user success"))
+                    {
+                        comment += "*" + "user success";
+                    }
+                } catch (JSONException ex) {
+                    ex.printStackTrace();
+                }
+                return comment;
             }
         }
         SendPost post = new SendPost();
@@ -628,10 +656,17 @@ public class MySQLConnect {
             protected String doInBackground(String... strings) {
                 try {
                     ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-                    nameValuePairs.add(new BasicNameValuePair("firstname", name[0]));
-                    nameValuePairs.add(new BasicNameValuePair("lastname", name[1]));
+                    nameValuePairs.add(new BasicNameValuePair("username", name[0]));
+                    nameValuePairs.add(new BasicNameValuePair("firstname", name[1]));
+                    nameValuePairs.add(new BasicNameValuePair("lastname", name[2]));
+                    if (name.length == 5) {
+                        nameValuePairs.add(new BasicNameValuePair("detail", name[4]));
+                    } else {
+                        nameValuePairs.add(new BasicNameValuePair("detail", ""));
+                    }
+
                     HttpClient httpClient = new DefaultHttpClient();
-                    HttpPost httpPost = new HttpPost(URL + DELETE_ACCOUNT);
+                    HttpPost httpPost = new HttpPost(URL + ADD_HISTORY);
                     httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs,"UTF-8"));
                     HttpResponse httpResponse = httpClient.execute(httpPost);
                     HttpEntity httpEntity = httpResponse.getEntity();
@@ -664,17 +699,72 @@ public class MySQLConnect {
 
             @Override
             protected void onPostExecute(String s) {
-                if (s.equals("delete success"))
-                {
-                    Toast.makeText(main,"delete account success", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(main,"delete account fail", Toast.LENGTH_LONG).show();
-                }
+
                 super.onPostExecute(s);
+                delegate.processFinish(s);
             }
         }
         SendPost post = new SendPost();
-        post.execute(name[0], name[1]);
+        post.execute(name);
+    }
+    public void AddQueue(final String Data)
+    {
+        final String[] name = Data.split(" ");
+        class SendPost extends AsyncTask<String, Void, String> {
+            @Override
+            protected String doInBackground(String... strings) {
+                try {
+                    ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+                    nameValuePairs.add(new BasicNameValuePair("q_username", name[0]));
+                    nameValuePairs.add(new BasicNameValuePair("q_bloodgroup", name[1]));
+
+                    HttpClient httpClient = new DefaultHttpClient();
+                    HttpPost httpPost = new HttpPost(URL + ADD_QUEUE);
+                    httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs,"UTF-8"));
+                    HttpResponse httpResponse = httpClient.execute(httpPost);
+                    HttpEntity httpEntity = httpResponse.getEntity();
+                    is = httpEntity.getContent();
+
+                } catch (UnsupportedEncodingException e){
+                    e.printStackTrace();
+                } catch (ClientProtocolException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.ISO_8859_1), 8);
+                    StringBuilder sb = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        sb.append(line);
+                    }
+                    is.close();
+                    return sb.toString();
+
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return "false";
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+//                if (s.equals("success"))
+//                {
+//                    Toast.makeText(main, "Add queue success", Toast.LENGTH_LONG).show();
+//                } else {
+//                    Toast.makeText(main, "Add queue fail", Toast.LENGTH_LONG).show();
+//                }
+                delegate.processFinish(s);
+
+            }
+        }
+        SendPost post = new SendPost();
+        post.execute(name);
     }
 
 }

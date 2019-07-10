@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class Profile extends AppCompatActivity {
 
-    private TextView mTextMessage;
+    private TextView mTextMessage, history;
     private Button logout;
 
 

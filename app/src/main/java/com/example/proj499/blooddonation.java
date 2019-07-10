@@ -10,28 +10,39 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class blooddonation extends AppCompatActivity implements MySQLConnect.AsyncResponse {
     private static final int RB1_ID = 1000;//first radio button id
     private static final int RB2_ID = 1001;//second radio button id
+    String data;
     int score = 0;
+    //private AlertDialog dialog1, dialog2;
+    private Button button;
+    private RadioButton r;
 
-    Button button = (Button)findViewById(R.id.button_bloodDonation);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blooddonation);
+        button = (Button)findViewById(R.id.button_bloodDonation);
 
         MySQLConnect mySQLConnect = new MySQLConnect();
         mySQLConnect.delegate = this;
         mySQLConnect.getData();
+        Bundle extras = getIntent().getExtras();
+        if (extras != null)
+        {
+            data = extras.getString("data");
+        }
     }
 
 
-    public void checkQuiz() {
+    public void checkQuiz(View view) {
 
         RadioGroup G_q1 = findViewById(R.id.q1);
         RadioGroup G_q2 = findViewById(R.id.q2);
@@ -83,196 +94,250 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
         int btn23 = G_q23.getCheckedRadioButtonId();
         int btn24 = G_q24.getCheckedRadioButtonId();
         int btn25 = G_q25.getCheckedRadioButtonId();
-        switch (btn1) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn2) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn3) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn4) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn5) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn6) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn7) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn8) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn9) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn10) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn11) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn12) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn13) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn14) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn15) {
-            case RB1_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn16) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn17) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn18) {
-            case RB2_ID:
-                score++;
-                break;
-            case RB1_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn19) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn20) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn21) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn22) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn23) {
-            case RB1_ID:
-                score++;
-                break;
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn24) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
-        }
-        switch (btn25) {
-            case RB2_ID:
-                score++;
-                break;
-            case -1:
-                break;
+        try {
+            r = findViewById(btn1);
+            String choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn2);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn3);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn4);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn5);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn6);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn7);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn8);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn9);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn10);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn11);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn12);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn13);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn14);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn15);
+            choice = r.getText().toString(); //yes
+            switch (choice) {
+                case "ใช่":
+                    score++;
+                    break;
+                case "ไม่":
+                    break;
+            }
+            r = findViewById(btn16);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn17);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn18);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    score++;
+                    break;
+            }
+            r = findViewById(btn19);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn20);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn21);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn22);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn23);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    score++;
+                    break;
+            }
+            r = findViewById(btn24);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+            r = findViewById(btn25);
+            choice = r.getText().toString();
+            switch (choice) {
+                case "ไม่":
+                    score++;
+                    break;
+                case "ใช่":
+                    break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(),"กรุณากรอกข้อมูลให้ครบถ้วน",Toast.LENGTH_LONG).show();
         }
 
+
+//        final AlertDialog dialog1;
+//        final AlertDialog dialog2;
 
         if (score == 25) {
             //insert into queue
             //show alertbox ยืนยันการจองคิว
             //ใช่ ไม่
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+//            button.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(blooddonation.this);
                     builder.setTitle("การบริจาค");
                     builder.setMessage("ท่านยืนยันการจองคิวหรือไม่");
@@ -282,32 +347,32 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
                         public void onClick(DialogInterface dialog, int which) {
                             switch (which) {
                                 case DialogInterface.BUTTON_POSITIVE:
-
-
+                                    AddQueue();
                                     break;
                                 case DialogInterface.BUTTON_NEGATIVE:
-
 
                                     break;
                             }
 
                         }
 
+
                     };
                     builder.setPositiveButton("ใช่", dialog);
                     builder.setNegativeButton("ไม่", dialog);
                     AlertDialog dialog1 = builder.create();
                     dialog1.show();
-                }
-            });
+                //}
+            //});
+
 
         } else {
             //alertbox ท่านไม่สามารถบริจาคโลหิตได้
             //ok
 
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+//            button.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(blooddonation.this);
                     builder.setTitle("การบริจาค");
                     builder.setMessage("ท่านไม่สามารถบริจาคได้");
@@ -330,17 +395,34 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
 
                     };
                     builder.setPositiveButton("OK", dialog);
-                    builder.show();
-                }
-            });
+//                    builder.show();
+                    AlertDialog dialog2 = builder.create();
+                    dialog2.show();
+//                }
+//            });
 
         }
+        score = 0;
     }
+    public void AddQueue()
+    {
+        MySQLConnect mySQLConnect = new MySQLConnect();
+        mySQLConnect.delegate = this;
+        data = data.replace("*", " ");
+        mySQLConnect.AddQueue(data);
+    }
+
 
     @Override
     public void processFinish(String output) {
-
+        if (output.equals("success"))
+        {
+            Toast.makeText(this, "Add queue success", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "Add queue fail", Toast.LENGTH_LONG).show();
+        }
     }
+
 }
 
 

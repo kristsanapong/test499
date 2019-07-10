@@ -21,6 +21,13 @@ public class FeaturesActivity extends AppCompatActivity {
     public void BloodDonate(View view)
     {
         Intent intent = new Intent(getBaseContext(), blooddonation.class);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null)
+        {
+            intent.putExtra("username", extras.getString("username"));
+            intent.putExtra("data", extras.getString("data"));
+        }
+
         startActivity(intent);
 
     }

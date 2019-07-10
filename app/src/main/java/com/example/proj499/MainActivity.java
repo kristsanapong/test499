@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button login,signup;
     EditText user,pass;
     Intent intent;
+    String uname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.login_button:
                 String username = user.getText().toString();
                 String password = pass.getText().toString();
+                uname = username;
+
                 MySQLConnect mySQLConnect = new MySQLConnect(); //main.this
                 mySQLConnect.delegate = this;
                 mySQLConnect.Login(username, password);
@@ -50,16 +53,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     public void processFinish(String output) {
-        if (output.equals("user success")) {
+        if (output.contains("user success")) {
             Toast.makeText(MainActivity.this, "User login success",Toast.LENGTH_LONG).show();
             intent = new Intent(this, FeaturesActivity.class);
+            intent.putExtra("username", uname);
+            intent.putExtra("data", output);
             startActivity(intent);
-        } else if (output.equals("admin success")) {
+        } else if (output.contains("admin success")) {
             Toast.makeText(MainActivity.this, "Admin login success",Toast.LENGTH_LONG).show();
             intent = new Intent(this, FeaturesTechnicianActivity.class);
+            intent.putExtra("username", uname);
+            intent.putExtra("data", output);
             startActivity(intent);
         }
-        else if (output.equals("Unable to connect")){
+        else if (output.contains("Unable to connect")){
             Toast.makeText(MainActivity.this, "Unable to connect",Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(MainActivity.this, "Login fail",Toast.LENGTH_LONG).show();
