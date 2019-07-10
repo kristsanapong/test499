@@ -76,7 +76,6 @@
 
     <TextView
         android:id="@+id/bdDate"
-        android:textSize="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -87,7 +86,8 @@
         android:layout_marginBottom="234dp"
         android:ems="10"
         android:hint="วันเกิด (วัน/เดือน/ปี)"
-        android:inputType="date" />
+        android:inputType="date"
+        android:textSize="15dp" />
 
     <EditText
         android:id="@+id/txt_citizen"
@@ -101,6 +101,7 @@
         android:layout_marginBottom="176dp"
         android:ems="10"
         android:maxLength="13"
+        android:textSize="15dp"
         android:hint="บัตรประจำตัวประชาชน 13 หลัก"
         android:inputType="number" />
 
