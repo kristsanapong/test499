@@ -31,9 +31,9 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
         setContentView(R.layout.activity_blooddonation);
         button = (Button)findViewById(R.id.button_bloodDonation);
 
-        MySQLConnect mySQLConnect = new MySQLConnect();
-        mySQLConnect.delegate = this;
-        mySQLConnect.getData();
+//        MySQLConnect mySQLConnect = new MySQLConnect();
+//        mySQLConnect.delegate = this;
+//        mySQLConnect.getData();
         Bundle extras = getIntent().getExtras();
         if (extras != null)
         {
