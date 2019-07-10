@@ -418,6 +418,7 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
         if (output.equals("success"))
         {
             Toast.makeText(this, "Add queue success", Toast.LENGTH_LONG).show();
+            finish();
         } else {
             Toast.makeText(this, "Add queue fail", Toast.LENGTH_LONG).show();
         }
