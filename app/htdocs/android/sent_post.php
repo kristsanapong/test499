@@ -1,11 +1,11 @@
 <?php
-	header("content-type:text/javascript;charset=utf-8");
-	define('HOST','localhost');
-	define('USER','root');
-	define('PASS','');
-	define('DB','blood_donation');
-	$con = mysqli_connect(HOST,USER,PASS,DB) or die('Unable to connect');
-
+	// header("content-type:text/javascript;charset=utf-8");
+	// define('HOST','localhost');
+	// define('USER','root');
+	// define('PASS','');
+	// define('DB','blood_donation');
+	// $con = mysqli_connect(HOST,USER,PASS,DB) or die('Unable to connect');
+	include 'db_connect.php';
 
 	if (isset($_POST)) {
 		
@@ -18,7 +18,7 @@
 		$bloodgroup = $_POST['bloodgroup'];
 		$password = $_POST['password'];
 			
-		mysqli_set_charset($con,"utf8");
+		// mysqli_set_charset($con,"utf8");
 		$sql = "INSERT INTO account (username, password, firstname, lastname, citizen_id, sex, bloodgroup) VALUES ('$username', '$password', '$firstname', '$lastname', '$citizen_id', '$sex', '$bloodgroup')";
 		if(mysqli_query($con,$sql)){
 			echo 'success';

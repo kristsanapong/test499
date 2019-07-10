@@ -1,15 +1,16 @@
 <?php
-	header("content-type:text/javascript;charset=utf-8");
-	define('HOST','localhost');
-	define('USER','root');
-	define('PASS','');
-	define('DB','blood_donation');
+	// header("content-type:text/javascript;charset=utf-8");
+	// define('HOST','localhost');
+	// define('USER','root');
+	// define('PASS','');
+	// define('DB','blood_donation');
+	include 'db_connect.php';
 
 	if ($_SERVER['REQUEST_METHOD']=='GET') {
 
-		$con = mysqli_connect(HOST,USER,PASS,DB) or die('Unable to connect');
+		// $con = mysqli_connect(HOST,USER,PASS,DB) or die('Unable to connect');
 
-		mysqli_set_charset($con,"utf8");
+		// mysqli_set_charset($con,"utf8");
 		$sql = "SELECT technician_account.firstname,technician_account.lastname FROM technician_account UNION SELECT account.firstname ,account.lastname FROM account";
 		$r = mysqli_query($con,$sql);
 		$result = array();
