@@ -29,7 +29,11 @@ public class History extends AppCompatActivity implements MySQLConnect.AsyncResp
 //            }
             MySQLConnect mySQLConnect = new MySQLConnect();
             mySQLConnect.delegate = this;
+            String[] email = Data.split(" ");
             mySQLConnect.AddHistory(Data + " " + detail);
+            MySQLConnect mySQLConnect1 = new MySQLConnect(History.this);
+            mySQLConnect1.DeleteQueue(email[0]);
+            finish();
         }
     }
 

@@ -63,6 +63,7 @@ public class MedicalActivity extends AppCompatActivity implements MySQLConnect.A
 
                                     intent.putExtra("detail", input_detail.getText().toString());
                                     startActivity(intent);
+                                    finish();
                                     break;
                                 case DialogInterface.BUTTON_NEGATIVE:
                                     //ไม่ผ่าน ลบ

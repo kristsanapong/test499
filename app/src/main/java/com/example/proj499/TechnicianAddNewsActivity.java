@@ -21,6 +21,7 @@ public class TechnicianAddNewsActivity extends AppCompatActivity {
         MySQLConnect mySQLConnect = new MySQLConnect(TechnicianAddNewsActivity.this);
         try {
             mySQLConnect.AddNews(data.getText().toString());
+            finish();
         } catch (Exception e) {
             e.printStackTrace();
         }
