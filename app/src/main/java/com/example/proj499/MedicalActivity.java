@@ -42,12 +42,12 @@ public class MedicalActivity extends AppCompatActivity implements MySQLConnect.A
             text.setTextSize(20);
             text.setTextColor(Color.BLACK);
 
-            text.setText("    "+i+".   "+person1+"\n");
+            text.setText("    "+i+". "+split[1]+" "+split[2]+" (หมู่โลหิต: "+split[3]+")"+"\n");
             text.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(MedicalActivity.this);
-                    builder.setTitle("การบริจาค");
+                    builder.setTitle("การบริจาคโลหิต");
                     builder.setMessage("แสดงความคิดเห็นเกี่ยวกับผู้บริจาคโลหิต");
                     final EditText input_detail = new EditText(getBaseContext());
                     input_detail.setInputType(InputType.TYPE_CLASS_TEXT);

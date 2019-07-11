@@ -12,7 +12,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:text="รายชื่อคิวผู้บริจาค"
+        android:text="รายชื่อคิวผู้บริจาคโลหิต"
         android:textSize="25dp"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"

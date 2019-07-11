@@ -35,7 +35,7 @@
 
         <activity
             android:name=".TechnicianAddNewsActivity"
-            android:label="เพิ่มประชาสัมพันธ์" />
+            android:label="เพิ่มข่าวและประชาสัมพันธ์" />
         <activity
             android:name=".TechnicianActivity"
             android:label="สำหรับเจ้าหน้าที่" />
@@ -56,7 +56,7 @@
             android:label="Blood Bank" />
         <activity
             android:name=".Queue"
-            android:label="คิวการบริจาค" />
+            android:label="คิวการบริจาคโลหิต" />
         <activity
             android:name=".blooddonation"
             android:label="Blood Donation" />

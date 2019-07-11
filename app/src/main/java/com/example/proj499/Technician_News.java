@@ -39,6 +39,7 @@ public class Technician_News extends AppCompatActivity implements MySQLConnect.A
         Intent intent = new Intent(getBaseContext(), TechnicianAddNewsActivity.class);
         startActivity(intent);
 
+
     }
 
     @Override

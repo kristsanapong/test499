@@ -37,7 +37,7 @@ public class Queue extends AppCompatActivity implements MySQLConnect.AsyncRespon
             text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             text.setTextSize(20);
             text.setTextColor(Color.BLACK);
-            text.setText("    "+i+". "+person1+"\n");
+            text.setText("    "+i+". "+split[1]+" "+split[2]+" (หมู่โลหิต: "+split[3]+")"+"\n");
             sv_Queue.addView(text);
         }
     }
