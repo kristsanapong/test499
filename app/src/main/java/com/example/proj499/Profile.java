@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Profile extends AppCompatActivity implements MySQLConnect.AsyncResponse{
 
@@ -56,8 +57,8 @@ public class Profile extends AppCompatActivity implements MySQLConnect.AsyncResp
         String firstname = "", lastname = "";
         StringBuilder All_details = new StringBuilder();
         TextView textView = findViewById(R.id.profile_history);
-
-        int count = detail.length;
+        int count = 0;
+        count = detail.length;
         for (String detail1 : detail)
         {
             detail1 = detail1.replace("*", " ");
@@ -66,6 +67,19 @@ public class Profile extends AppCompatActivity implements MySQLConnect.AsyncResp
             lastname = name[2];
             All_details.append(detail1).append("\n");
         }
-        textView.setText(firstname+" "+lastname+"\n"+"ท่านได้บริจาคโลหิตมาแล้ว  "+count+" ครั้ง");
+        try {
+            if (count == 0)
+            {
+                textView.setText(firstname+" "+lastname+"\n"+"ท่านได้บริจาคโลหิตมาแล้ว  "+count+" ครั้ง");
+            } else {
+                textView.setText(firstname+" "+lastname+"\n"+"ท่านได้บริจาคโลหิตมาแล้ว  "+count+" ครั้ง");
+            }
+
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+            Toast.makeText(this, "คุณยังไม่เคยบิจาคโลหิต", Toast.LENGTH_LONG ).show();
+        }
+
     }
 }
