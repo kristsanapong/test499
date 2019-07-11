@@ -939,8 +939,17 @@ public class MySQLConnect {
                         result = jsonObject.getJSONArray("result");
                         for (int i = 0; i < result.length(); i++) {
                             JSONObject collectData = result.getJSONObject(i);
-                            comment = collectData.getString("detail");
-                            comment += "*" + collectData.getString("firstname");
+                            //comment = collectData.getString("detail");
+                            comment = collectData.getString("firstname");
+                            comment += "*" + collectData.getString("lastname");
+                            list2.add(comment);
+                        }
+                    }
+                    if (jsonObject.has("name")) {
+                        result = jsonObject.getJSONArray("name");
+                        for (int i = 0; i < result.length(); i++) {
+                            JSONObject collectData = result.getJSONObject(i);
+                            comment = collectData.getString("firstname");
                             comment += "*" + collectData.getString("lastname");
                             list2.add(comment);
                         }

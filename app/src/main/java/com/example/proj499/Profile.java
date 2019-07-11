@@ -16,7 +16,7 @@ public class Profile extends AppCompatActivity implements MySQLConnect.AsyncResp
 
     private TextView mTextMessage, history;
     private Button logout;
-    String username;
+    String username, data;
 
 
     @Override
@@ -31,6 +31,7 @@ public class Profile extends AppCompatActivity implements MySQLConnect.AsyncResp
         if (extras != null)
         {
             username = extras.getString("username");
+            data = extras.getString("data");
         }
         MySQLConnect mySQLConnect = new MySQLConnect();
         mySQLConnect.delegate = this;
@@ -59,26 +60,34 @@ public class Profile extends AppCompatActivity implements MySQLConnect.AsyncResp
         TextView textView = findViewById(R.id.profile_history);
         int count = 0;
         count = detail.length;
-        for (String detail1 : detail)
-        {
-            detail1 = detail1.replace("*", " ");
-            String[] name = detail1.split(" ");
-            firstname = name[1];
-            lastname = name[2];
-            All_details.append(detail1).append("\n");
-        }
+//        for (String detail1 : detail)
+//        {
+//            detail1 = detail1.replace("*", " ");
+//            String[] name = detail1.split(" ");
+//            firstname = name[0];
+//            lastname = name[1];
+//            All_details.append(detail1).append("\n");
+//        }
         try {
-            if (count == 0)
+            for (String detail1 : detail)
             {
-                textView.setText(firstname+" "+lastname+"\n"+"ท่านได้บริจาคโลหิตมาแล้ว  "+count+" ครั้ง");
+                detail1 = detail1.replace("*", " ");
+                String[] name = detail1.split(" ");
+                firstname = name[0];
+                lastname = name[1];
+                All_details.append(detail1).append("\n");
+            }
+            if (count == 1)
+            {
+                textView.setText(firstname+" "+lastname+"\n"+"ท่านได้บริจาคโลหิตมาแล้ว  "+(count-1)+" ครั้ง");
             } else {
-                textView.setText(firstname+" "+lastname+"\n"+"ท่านได้บริจาคโลหิตมาแล้ว  "+count+" ครั้ง");
+                textView.setText(firstname+" "+lastname+"\n"+"ท่านได้บริจาคโลหิตมาแล้ว  "+(count-1)+" ครั้ง");
             }
 
         } catch (Exception e)
         {
             e.printStackTrace();
-            Toast.makeText(this, "คุณยังไม่เคยบิจาคโลหิต", Toast.LENGTH_LONG ).show();
+            Toast.makeText(this, "คุณยังไม่เคยบริจาคโลหิต", Toast.LENGTH_LONG ).show();
         }
 
     }

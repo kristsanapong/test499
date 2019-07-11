@@ -36,7 +36,9 @@ public class FeaturesTechnicianActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null)
         {
-            intent.putExtra("admin", extras.getString("admin"));
+            String admin = extras.getString("username");
+            intent.putExtra("username", admin);
+            intent.putExtra("data", extras.getString("data"));
         }
 
         startActivity(intent);
