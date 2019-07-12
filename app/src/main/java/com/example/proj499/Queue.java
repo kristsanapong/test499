@@ -27,19 +27,22 @@ public class Queue extends AppCompatActivity implements MySQLConnect.AsyncRespon
         String[] person = output.split("#");
         LinearLayout sv_Queue = (LinearLayout) findViewById(R.id.llQueue);
         int i = 0;
-        for (String person1 : person) {
-            i++;
-            person1 = person1.replace("*"," ");
-            String[] split = person1.split(" ");
-            final String email = split[0]; // email
-            person1 = person1.replace(email, "");
-            TextView text = new TextView(this);
-            text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            text.setTextSize(20);
-            text.setTextColor(Color.BLACK);
-            text.setText("    "+i+". "+split[1]+" "+split[2]+" (หมู่โลหิต: "+split[3]+")"+"\n");
-            sv_Queue.addView(text);
+        if (!output.equals("")){
+            for (String person1 : person) {
+                i++;
+                person1 = person1.replace("*"," ");
+                String[] split = person1.split(" ");
+                final String email = split[0]; // email
+                person1 = person1.replace(email, "");
+                TextView text = new TextView(this);
+                text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                text.setTextSize(20);
+                text.setTextColor(Color.BLACK);
+                text.setText("    "+i+". "+split[1]+" "+split[2]+" (หมู่โลหิต: "+split[3]+")"+"\n");
+                sv_Queue.addView(text);
+            }
         }
+
     }
 
 
