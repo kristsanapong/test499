@@ -13,7 +13,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:text="รายชื่อผู้บริจาคโลหิต"
+        android:text="รายชื่อผู้นัดบริจาคโลหิต"
         android:textColor="#000000"
         android:textSize="25dp"
 
@@ -54,7 +54,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginRight="10dp"
         android:gravity="center"
-        android:text="แพทย์และพยาบาลสามารถเพิ่มความเห็นและให้ผ่านได้โดยการคลิกที่ชื่อของผู้บริจาคโลหิต"
+        android:text="แพทย์และพยาบาลสามารถเพิ่มความเห็นและให้ผ่านได้โดยการคลิกที่ชื่อของผู้นัดบริจาคโลหิต"
         android:textColor="@color/colorPrimary"
         android:textSize="15dp"
         android:textStyle="bold"
