@@ -44,17 +44,20 @@ public class Technician_News extends AppCompatActivity implements MySQLConnect.A
 
     @Override
     public void processFinish(String output) {
+        output = output.replace("*","/");
         String[] news = output.split("#");
+
         LinearLayout sv_News = (LinearLayout) findViewById(R.id.llTechnician_News);
         int i = 0;
         for (final String news1 : news) {
             i++;
+            final String[] Details = news1.split("/");
             TextView text = new TextView(this);
             text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             text.setTextSize(20);
             text.setTextColor(Color.BLACK);
             text.setTypeface(null, Typeface.BOLD);
-            text.setText(news1+"\n");
+            text.setText(Details[0]+"\n"+Details[1]+"\n");
             text.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -71,7 +74,7 @@ public class Technician_News extends AppCompatActivity implements MySQLConnect.A
                                 case DialogInterface.BUTTON_POSITIVE:
 
                                     MySQLConnect mySQLConnect = new MySQLConnect(Technician_News.this);
-                                    mySQLConnect.DeleteNews(news1);
+                                    mySQLConnect.DeleteNews(Details[0]);
                                     break;
                                 case DialogInterface.BUTTON_NEGATIVE:
 

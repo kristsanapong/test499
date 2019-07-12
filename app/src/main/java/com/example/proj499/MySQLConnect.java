@@ -386,6 +386,7 @@ public class MySQLConnect {
                     for (int i = 0; i < result.length(); i++) {
                         JSONObject collectData = result.getJSONObject(i);
                         comment = collectData.getString("news_lead");
+                        comment += "*" + collectData.getString("news_date");
 //                        comment += "*" + collectData.getString("firstname");
 //                        comment += "*" + collectData.getString("lastname");
 //                        comment += "*" + collectData.getString("bloodgroup");

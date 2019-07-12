@@ -26,18 +26,20 @@ public class News extends AppCompatActivity implements MySQLConnect.AsyncRespons
     }
 
     @Override
-    public void processFinish(String output) {
+    public void processFinish(String output) {//timestamp
+        output = output.replace("*","/");
         String[] news = output.split("#");
         LinearLayout sv_News = (LinearLayout) findViewById(R.id.llNews);
         int i = 0;
         for (String news1 : news) {
             i++;
+            String[] Details = news1.split("/");
             TextView text = new TextView(this);
             text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             text.setTextSize(20);
             text.setTextColor(Color.BLACK);
             text.setTypeface(null, Typeface.BOLD);
-            text.setText(news1+"\n");
+            text.setText(Details[0]+"\n"+Details[1]+"\n");
             sv_News.addView(text);
         }
     }
