@@ -340,7 +340,7 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
 //                public void onClick(View v) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(blooddonation.this);
                     builder.setTitle("การบริจาค");
-                    builder.setMessage("ท่านยืนยันการจองคิวหรือไม่");
+                    builder.setMessage("ท่านยืนยันการนัดหรือไม่");
 
                     DialogInterface.OnClickListener dialog = new DialogInterface.OnClickListener() {
                         @Override
