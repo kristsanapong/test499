@@ -76,6 +76,6 @@ public class FeaturesActivity extends AppCompatActivity {
             public void run() {
                 doubleBackToExitPressedOnce=false;
             }
-        }, 2000);
+        }, 5000);
     }
 }

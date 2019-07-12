@@ -75,7 +75,7 @@ public class FeaturesTechnicianActivity extends AppCompatActivity {
             public void run() {
                 doubleBackToExitPressedOnce=false;
             }
-        }, 2000);
+        }, 5000);
     }
 
 }
