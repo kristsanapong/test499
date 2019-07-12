@@ -59,7 +59,7 @@
             android:label="คิวการบริจาคโลหิต" />
         <activity
             android:name=".blooddonation"
-            android:label="Blood Donation" />
+            android:label="การนัดบริจาคโลหิต" />
         <activity
             android:name=".Signup"
             android:label="สมัครสมาชิก" />
@@ -77,7 +77,7 @@
             android:label="สำหรับแพทย์และพยาบาล" />
         <activity
             android:name=".News"
-            android:label="ประชาสัมพันธ์" />
+            android:label="ข่าวและประชาสัมพันธ์" />
         <activity
             android:name=".Technician_Account"
             android:label="สำหรับจัดการผู้ใช้งาน" />
