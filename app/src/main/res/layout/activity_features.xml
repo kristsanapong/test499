@@ -91,7 +91,7 @@
         android:id="@+id/textView12"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:text="ตำแหน่งสถาณที่บริจาคโลหิต"
+        android:text="ตำแหน่งสถานที่บริจาคโลหิต"
         android:textColor="#000000"
         android:gravity="center"
         android:textSize="15dp"
