@@ -56,7 +56,7 @@
             android:label="Blood Bank" />
         <activity
             android:name=".Queue"
-            android:label="คิวการบริจาคโลหิต" />
+            android:label="รายชื่อผู้นัดบริจาคโลหิต" />
         <activity
             android:name=".blooddonation"
             android:label="การนัดบริจาคโลหิต" />
@@ -71,7 +71,7 @@
             android:label="สำหรับแพทย์ พยาบาลและเจ้าหน้าที่" />
         <activity
             android:name=".EditBloodData"
-            android:label="แก้ไขข้อมูลผู้บริจาคโลหิต" />
+            android:label="แก้ไขข้อมูลผู้นัดบริจาคโลหิต" />
         <activity
             android:name=".MedicalActivity"
             android:label="สำหรับแพทย์และพยาบาล" />
@@ -83,7 +83,7 @@
             android:label="สำหรับจัดการผู้ใช้งาน" />
         <activity
             android:name=".Technician_News"
-            android:label="สำหรับจัดการประชาสัมพันธ์" />
+            android:label="สำหรับจัดการข่าวและประชาสัมพันธ์" />
         <activity
             android:name=".TechnicianAddMedicalActivity"
             android:label="เพิ่มข้อมูล แพทย์ พยาบาล และเจ้าหน้าที่" />
