@@ -52,10 +52,22 @@ public class FeaturesTechnicianActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-    public void ForTechnician(View view){
+    public void ForTechnician(View view){ //1321321321321321
 
         Intent intent = new Intent(getBaseContext(), ManageDataTechnician.class);
         startActivity(intent);
+    }
+    public void ManageMedical(View view)
+    {
+        Intent intent = new Intent(getBaseContext(), MedicalActivity.class);
+        startActivity(intent);
+
+    }
+    public void ManageAdmin(View view)
+    {
+        Intent intent = new Intent(getBaseContext(), TechnicianActivity.class);
+        startActivity(intent);
+
     }
     boolean doubleBackToExitPressedOnce = false;
 
