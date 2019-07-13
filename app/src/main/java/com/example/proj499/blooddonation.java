@@ -399,9 +399,12 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
                             switch (which) {
                                 case DialogInterface.BUTTON_POSITIVE:
                                     AddQueue();
+                                    score = 0;
+                                    count = 0;
                                     break;
                                 case DialogInterface.BUTTON_NEGATIVE:
-
+                                    score = 0;
+                                    count = 0;
                                     break;
                             }
 
@@ -437,8 +440,6 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
 
                                     break;
                                 case DialogInterface.BUTTON_NEGATIVE:
-
-
                                     break;
                             }
 
