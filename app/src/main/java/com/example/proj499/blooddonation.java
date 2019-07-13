@@ -20,6 +20,7 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
     private static final int RB2_ID = 1001;//second radio button id
     String data;
     int score = 0;
+    int count = 0;
     //private AlertDialog dialog1, dialog2;
     private Button button;
     private RadioButton r;
@@ -99,9 +100,11 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
             String choice = r.getText().toString();
             switch (choice) {
                 case "ไม่":
+                    count++;
                     score++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn2);
@@ -109,8 +112,10 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
             switch (choice) {
                 case "ไม่":
                     score++;
+                    count++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn3);
@@ -118,8 +123,10 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
             switch (choice) {
                 case "ไม่":
                     score++;
+                    count++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn4);
@@ -127,8 +134,10 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
             switch (choice) {
                 case "ไม่":
                     score++;
+                    count++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn5);
@@ -136,8 +145,10 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
             switch (choice) {
                 case "ไม่":
                     score++;
+                    count++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn6);
@@ -145,116 +156,142 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
             switch (choice) {
                 case "ไม่":
                     score++;
+                    count++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn7);
             choice = r.getText().toString();
             switch (choice) {
                 case "ไม่":
+                    count++;
                     score++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn8);
             choice = r.getText().toString();
             switch (choice) {
                 case "ไม่":
+                    count++;
                     score++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn9);
             choice = r.getText().toString();
             switch (choice) {
                 case "ไม่":
+                    count++;
                     score++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn10);
             choice = r.getText().toString();
             switch (choice) {
                 case "ไม่":
+                    count++;
                     score++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn11);
             choice = r.getText().toString();
             switch (choice) {
                 case "ไม่":
+                    count++;
                     score++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn12);
             choice = r.getText().toString();
             switch (choice) {
                 case "ไม่":
+                    count++;
                     score++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn13);
             choice = r.getText().toString();
             switch (choice) {
                 case "ไม่":
+                    count++;
                     score++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn14);
             choice = r.getText().toString();
             switch (choice) {
                 case "ไม่":
+                    count++;
                     score++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn15);
             choice = r.getText().toString(); //yes
             switch (choice) {
                 case "ใช่":
+                    count++;
                     score++;
                     break;
                 case "ไม่":
+                    count++;
                     break;
             }
             r = findViewById(btn16);
             choice = r.getText().toString();
             switch (choice) {
                 case "ไม่":
+                    count++;
                     score++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn17);
             choice = r.getText().toString();
             switch (choice) {
                 case "ไม่":
+                    count++;
                     score++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn18);
             choice = r.getText().toString();
             switch (choice) {
                 case "ไม่":
+                    count++;
                     score++;
                     break;
                 case "ใช่":
+                    count++;
                     score++;
                     break;
             }
@@ -262,18 +299,22 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
             choice = r.getText().toString();
             switch (choice) {
                 case "ไม่":
+                    count++;
                     score++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn20);
             choice = r.getText().toString();
             switch (choice) {
                 case "ไม่":
+                    count++;
                     score++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn21);
@@ -281,26 +322,32 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
             switch (choice) {
                 case "ไม่":
                     score++;
+                    count++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn22);
             choice = r.getText().toString();
             switch (choice) {
                 case "ไม่":
+                    count++;
                     score++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn23);
             choice = r.getText().toString();
             switch (choice) {
                 case "ไม่":
+                    count++;
                     score++;
                     break;
                 case "ใช่":
+                    count++;
                     score++;
                     break;
             }
@@ -308,18 +355,22 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
             choice = r.getText().toString();
             switch (choice) {
                 case "ไม่":
+                    count++;
                     score++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
             r = findViewById(btn25);
             choice = r.getText().toString();
             switch (choice) {
                 case "ไม่":
+                    count++;
                     score++;
                     break;
                 case "ใช่":
+                    count++;
                     break;
             }
         } catch (Exception e) {
@@ -331,7 +382,7 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
 //        final AlertDialog dialog1;
 //        final AlertDialog dialog2;
 
-        if (score == 25) {
+        if (score == 25 && count ==25) {
             //insert into queue
             //show alertbox ยืนยันการจองคิว
             //ใช่ ไม่
@@ -366,13 +417,13 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
             //});
 
 
-        } else {
+        } else if (score != 25 && count == 25){
             //alertbox ท่านไม่สามารถบริจาคโลหิตได้
             //ok
 
-//            button.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(blooddonation.this);
                     builder.setTitle("การบริจาค");
                     builder.setMessage("ท่านไม่สามารถบริจาคได้");
@@ -398,11 +449,12 @@ public class blooddonation extends AppCompatActivity implements MySQLConnect.Asy
 //                    builder.show();
                     AlertDialog dialog2 = builder.create();
                     dialog2.show();
-//                }
-//            });
+                }
+            });
 
         }
         score = 0;
+        count = 0;
     }
     public void AddQueue()
     {

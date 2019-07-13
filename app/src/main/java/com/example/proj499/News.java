@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -37,12 +38,19 @@ public class News extends AppCompatActivity implements MySQLConnect.AsyncRespons
                 i++;
                 String[] Details = news1.split("/");
                 TextView text = new TextView(this);
+                TextView text2 = new TextView(this);
                 text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                 text.setTextSize(20);
                 text.setTextColor(Color.BLACK);
                 text.setTypeface(null, Typeface.BOLD);
-                text.setText(Details[0]+"\n"+Details[1]+"\n");
+                text.setText(Details[0]);
+                text2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                text2.setTextSize(15);
+                text2.setGravity(Gravity.RIGHT);
+                text2.setText(Details[1]+"\n");
+                text2.setTextColor(Color.GRAY);
                 sv_News.addView(text);
+                sv_News.addView(text2);
             }
         }
 
